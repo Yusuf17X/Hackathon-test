@@ -1,0 +1,50 @@
+# Pages
+
+/                 → Landing (show top schools)
+/login            → Login
+/register         → Register (select your school)
+/challenges       → Today's challenges + submit proof
+/leaderboard      → You vs Class vs School vs City
+/profile          → Your badges + stats + share
+
+
+# Database Models
+
+Users
+├── id
+├── name
+├── email
+├── password
+├── school_id
+├── points
+└── created_at
+
+Schools
+├── id
+├── name
+├── city
+└── total_points (sum of all students)
+
+Challenges
+├── id
+├── title
+├── description
+├── points
+├── proof_type (photo/self_report)
+└── is_active
+
+UserChallenges
+├── id
+├── user_id
+├── challenge_id
+├── proof_url (photo link)
+├── status (pending/approved/rejected)
+├── points_awarded
+└── submitted_at
+
+Badges
+├── id
+├── name
+├── icon
+├── requirement (e.g., "complete 10 challenges")
+└── points_threshold
