@@ -1,3 +1,27 @@
 1. Check unused packages in package.json and reinstall if any unused
 
 2. Check app.js for protection against xss attacks
+
+function checkBadgeEarned(user, badge) {
+  switch (badge.requirement_type) {
+    case 'challenges_count':
+      const completedCount = await getCompletedChallengesCount(user.id)
+      return completedCount >= badge.requirement_value
+    
+    case 'points_threshold':
+      return user.points >= badge.requirement_value
+    
+    case 'specific_challenge':
+      const hasCompleted = await hasCompletedChallenge(user.id, badge.requirement_value)
+      return hasCompleted
+    
+    default:
+      return false
+  }
+}
+When to Check:
+Call checkBadgeEarned() every time a challenge is approved. If true → insert into UserBadges table.
+
+update profile image to a default one for all accounts
+
+3. Icons are emojis

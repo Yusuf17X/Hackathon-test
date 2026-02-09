@@ -11,40 +11,48 @@
 # Database Models
 
 Users
-├── id
-├── name
-├── email
-├── password
-├── school_id
-├── points
-└── created_at
+├── id (uuid, PK)
+├── name (text)
+├── email (text, unique)
+├── password (text, hashed)
+├── school_id (uuid, FK)
+├── points (integer, default 0)
+└── created_at (timestamp)
 
 Schools
-├── id
-├── name
-├── city
-└── total_points (sum of all students)
+├── id (uuid, PK)
+├── name (text)
+├── city (text)
+└── created_at (timestamp)
 
 Challenges
-├── id
-├── title
-├── description
-├── points
-├── proof_type (photo/self_report)
-└── is_active
+├── id (uuid, PK)
+├── title (text)
+├── title_ar (text)
+├── description_ar (text)
+├── points (integer)
+├── is_active (boolean, default true)
+└── created_at (timestamp)
 
 UserChallenges
-├── id
-├── user_id
-├── challenge_id
-├── proof_url (photo link)
-├── status (pending/approved/rejected)
-├── points_awarded
-└── submitted_at
+├── id (uuid, PK)
+├── user_id (uuid, FK)
+├── challenge_id (uuid, FK)
+├── proof_url (text, required)
+├── status (text: pending/approved/rejected)
+└── submitted_at (timestamp)
 
 Badges
-├── id
-├── name
-├── icon
-├── requirement (e.g., "complete 10 challenges")
-└── points_threshold
+├── id (uuid, PK)
+├── name (text)
+├── name_ar (text)
+├── icon (text, emoji or url)
+├── requirement_type (text: challenges_count/points_threshold)
+├── requirement_value (integer)
+└── created_at (timestamp)
+
+UserBadges
+├── id (uuid, PK)
+├── user_id (uuid, FK)
+├── badge_id (uuid, FK)
+└── earned_at (timestamp)

@@ -5,6 +5,10 @@ const User = require("./../models/userModel");
 const AppError = require("./../utils/appError");
 const factory = require("./handlerFactory");
 
+const School = require("./../models/schoolModel");
+const userChallenge = require("./../models/userChallengeModel");
+const userBadge = require("./../models/userBadgeModel");
+
 // const multerStorage = multer.diskStorage({
 //   destination: (req, file, cb) => {
 //     cb(null, "public/users/img");
@@ -56,6 +60,27 @@ exports.getMe = (req, res, next) => {
 
   next();
 };
+
+exports.getProfileDetails = catchAsync(async (req, res, next) => {
+  const user = await User.findById(req.user._id).populate(
+    "school_id",
+    "name city",
+  );
+
+  const userChallenges = await userChallenge
+    .find({ user_id: req.user._id })
+    .populate("challenge_id", "name points createdAt");
+
+  const userBadges = await userBadge
+    .find({ user_id: req.user._id })
+    .populate("badge_id", "name icon createdAt");
+
+  res.status(200).json({
+    status: "success",
+    data: {
+      name: user.name,
+      
+});
 
 exports.updateMe = catchAsync(async (req, res, next) => {
   if (req.body.password || req.body.passwordConfirm)

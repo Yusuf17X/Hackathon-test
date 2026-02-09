@@ -9,10 +9,12 @@ const cookieParser = require("cookie-parser");
 const compression = require("compression");
 const cors = require("cors");
 
-const movieRouter = require("./routes/movieRoutes");
 const userRouter = require("./routes/userRoutes");
-const reviewRouter = require("./routes/reviewRoutes");
-const bookingRouter = require("./routes/bookingRoutes");
+const schoolRouter = require("./routes/schoolRoutes");
+const badgeRouter = require("./routes/badgeRoutes");
+const challengeRouter = require("./routes/chellengeRoutes");
+const userChallengeRouter = require("./routes/userChallengeRoutes");
+const userBadgeRouter = require("./routes/userBadgeRoutes");
 const appError = require("./utils/appError");
 const globalErrorHandler = require("./controllers/errorController");
 
@@ -59,10 +61,12 @@ app.use(
 
 app.use(compression());
 
-app.use("/api/v1/movies", movieRouter);
 app.use("/api/v1/users", userRouter);
-app.use("/api/v1/reviews", reviewRouter);
-app.use("/api/v1/bookings", bookingRouter);
+app.use("/api/v1/schools", schoolRouter);
+app.use("/api/v1/badges", badgeRouter);
+app.use("/api/v1/challenges", challengeRouter);
+app.use("/api/v1/user-challenges", userChallengeRouter);
+app.use("/api/v1/user-badges", userBadgeRouter);
 
 // .all() means all the verbs(HTTP methods): GET, POST, etc...
 app.all("/*splat", (req, res, next) => {

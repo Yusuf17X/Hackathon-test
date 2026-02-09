@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const slugify = require("slugify");
-const { trim } = require("validator");
 
 const challengeSchema = new mongoose.Schema(
   {
@@ -22,15 +21,6 @@ const challengeSchema = new mongoose.Schema(
       type: Number,
       default: 10,
       min: [5, "Challenge points is too low!"],
-    },
-    proof_type: {
-      type: String,
-      required: [true, "Challenge must have a proof type!"],
-      enum: {
-        values: ["photo", "report"],
-        message: "{VALUE} is not a valid value!",
-      },
-      default: "photo",
     },
   },
   {
