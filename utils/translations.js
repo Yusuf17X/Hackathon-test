@@ -34,6 +34,23 @@ const translations = {
   month: "شهر",
 };
 
+const arabicMonths = [
+  "يناير",
+  "فبراير",
+  "مارس",
+  "أبريل",
+  "مايو",
+  "يونيو",
+  "يوليو",
+  "أغسطس",
+  "سبتمبر",
+  "أكتوبر",
+  "نوفمبر",
+  "ديسمبر",
+];
+
+const MS_PER_DAY = 1000 * 60 * 60 * 24;
+
 const t = (key) => {
   return translations[key] || key;
 };
@@ -44,7 +61,7 @@ const formatRelativeTime = (date) => {
   const diffMs = now - past;
   const diffMinutes = Math.floor(diffMs / (1000 * 60));
   const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
-  const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+  const diffDays = Math.floor(diffMs / MS_PER_DAY);
 
   if (diffMinutes < 1) {
     return t("now");
@@ -65,4 +82,15 @@ const formatRelativeTime = (date) => {
   }
 };
 
-module.exports = { translations, t, formatRelativeTime };
+const formatMemberSince = (date) => {
+  return `${arabicMonths[date.getMonth()]} ${date.getFullYear()}`;
+};
+
+module.exports = {
+  translations,
+  arabicMonths,
+  MS_PER_DAY,
+  t,
+  formatRelativeTime,
+  formatMemberSince,
+};

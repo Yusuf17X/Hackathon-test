@@ -62,7 +62,11 @@ exports.getMe = (req, res, next) => {
 
 exports.getProfile = catchAsync(async (req, res, next) => {
   const Badge = require("./../models/badgeModel");
-  const { t } = require("./../utils/translations");
+  const {
+    t,
+    formatMemberSince,
+    MS_PER_DAY,
+  } = require("./../utils/translations");
 
   // Get user with populated school
   const user = await User.findById(req.user._id).populate(
@@ -137,7 +141,7 @@ exports.getProfile = catchAsync(async (req, res, next) => {
   if (user.lastActivityDate) {
     const now = new Date();
     const lastActivity = new Date(user.lastActivityDate);
-    const diffDays = Math.floor((now - lastActivity) / (1000 * 60 * 60 * 24));
+    const diffDays = Math.floor((now - lastActivity) / MS_PER_DAY);
 
     if (diffDays === 0 || diffDays === 1) {
       streak = user.currentStreak;
@@ -145,22 +149,7 @@ exports.getProfile = catchAsync(async (req, res, next) => {
   }
 
   // Format member since date
-  const memberSince = user.createdAt;
-  const monthsAr = [
-    "يناير",
-    "فبراير",
-    "مارس",
-    "أبريل",
-    "مايو",
-    "يونيو",
-    "يوليو",
-    "أغسطس",
-    "سبتمبر",
-    "أكتوبر",
-    "نوفمبر",
-    "ديسمبر",
-  ];
-  const memberSinceFormatted = `${monthsAr[memberSince.getMonth()]} ${memberSince.getFullYear()}`;
+  const memberSinceFormatted = formatMemberSince(user.createdAt);
 
   // Get all badges and check which ones the user has earned
   const allBadges = await Badge.find();
