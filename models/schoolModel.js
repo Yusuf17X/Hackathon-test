@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const User = require("./userModel");
 const slugify = require("slugify");
 
 const schoolSchema = new mongoose.Schema(

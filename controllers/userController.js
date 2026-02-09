@@ -5,7 +5,6 @@ const User = require("./../models/userModel");
 const AppError = require("./../utils/appError");
 const factory = require("./handlerFactory");
 
-const School = require("./../models/schoolModel");
 const userChallenge = require("./../models/userChallengeModel");
 const userBadge = require("./../models/userBadgeModel");
 
@@ -66,14 +65,17 @@ exports.getProfile = catchAsync(async (req, res, next) => {
   const { t } = require("./../utils/translations");
 
   // Get user with populated school
-  const user = await User.findById(req.user._id).populate("school_id", "name city");
+  const user = await User.findById(req.user._id).populate(
+    "school_id",
+    "name city",
+  );
 
   if (!user) {
     return next(new AppError("User not found", 404));
   }
 
   // Calculate level based on points
-  const points = user.points;
+  const { points } = user;
   let level = {
     current: 1,
     name: "beginner",
