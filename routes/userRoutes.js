@@ -25,7 +25,7 @@ router.get(
   "/me",
   authController.protect,
   userController.getMe,
-  userController.getProfileDetails,
+  userController.getProfile,
 );
 
 // Update user data
