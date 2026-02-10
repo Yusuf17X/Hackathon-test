@@ -29,7 +29,7 @@ if (process.env.NODE_ENV === "development") {
 app.enable("trust proxy");
 
 app.use(cors());
-app.options("*", cors());
+// app.options("*", cors());
 
 const limiter = rateLimit({
   max: 100,
@@ -69,7 +69,7 @@ app.use("/api/v1/user-challenges", userChallengeRouter);
 app.use("/api/v1/user-badges", userBadgeRouter);
 
 // .all() means all the verbs(HTTP methods): GET, POST, etc...
-app.all("/*splat", (req, res, next) => {
+app.use((req, res, next) => {
   next(new appError(`Cant find ${req.originalUrl}`, 404));
 });
 
