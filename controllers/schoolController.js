@@ -27,7 +27,7 @@ exports.getSchoolsLeaderboard = catchAsync(async (req, res, next) => {
     return next(new AppError("User not found", 404));
   }
 
-  // Aggregate users by school_id to get total points and student count
+  // aggregate users by school_id to get total points and student count
   const top100Schools = await User.aggregate([
     {
       $match: {
@@ -87,7 +87,7 @@ exports.getSchoolsLeaderboard = catchAsync(async (req, res, next) => {
     (entry) => entry.isCurrentUserSchool,
   );
 
-  // If not in top 100, calculate actual rank and add as 101st item
+  // If not in top 100 calculate actual rank and add as 101st item
   if (!currentUserSchoolInTop100 && currentUser.school_id) {
     // Get current user's school aggregated data
     const currentSchoolData = await User.aggregate([
@@ -153,7 +153,8 @@ exports.getSchoolsLeaderboard = catchAsync(async (req, res, next) => {
         },
       ]);
 
-      const actualRank = schoolsAhead.length > 0 ? schoolsAhead[0].count + 1 : 1;
+      const actualRank =
+        schoolsAhead.length > 0 ? schoolsAhead[0].count + 1 : 1;
 
       leaderboard.push({
         rank: actualRank,

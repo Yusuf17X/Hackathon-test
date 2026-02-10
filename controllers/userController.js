@@ -249,7 +249,6 @@ exports.updateUser = factory.updateOne(User);
 
 exports.deleteUser = factory.deleteOne(User);
 
-// Leaderboard: School-level
 exports.getSchoolLeaderboard = catchAsync(async (req, res, next) => {
   const currentUser = await User.findById(req.user._id).populate(
     "school_id",
@@ -311,7 +310,6 @@ exports.getSchoolLeaderboard = catchAsync(async (req, res, next) => {
   });
 });
 
-// Leaderboard: Iraq-level
 exports.getIraqLeaderboard = catchAsync(async (req, res, next) => {
   const currentUser = await User.findById(req.user._id).populate(
     "school_id",

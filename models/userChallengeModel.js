@@ -25,7 +25,7 @@ const userChallengeSchema = new mongoose.Schema(
     status: {
       type: "String",
       enum: {
-        values: ["approved", "rejected"],
+        values: ["processing", "approved", "rejected"],
         message: "{VALUE} is not a valid value!",
       },
       required: [true, "A user challenge must have a status!"],
