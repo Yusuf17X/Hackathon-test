@@ -21,6 +21,7 @@ exports.getAllChallenges = catchAsync(async (req, res, next) => {
 
   // Use APIFeatures for filtering, sorting, field limiting, and pagination
   const features = new APIFeatures(Challenge.find(filter), queryString)
+    .filter()
     .sort()
     .limitFields()
     .paginate();
