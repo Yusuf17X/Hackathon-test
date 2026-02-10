@@ -13,7 +13,7 @@ const badgeSchema = new mongoose.Schema({
     type: String,
     required: [true, "A badge must have a requirement!"],
     enum: {
-      values: ["challenges_count", "points_threshold", "specific_challenge"],
+      values: ["challenges_count", "points_threshold"],
     },
   },
   requirement_value: {
