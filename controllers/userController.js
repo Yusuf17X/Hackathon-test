@@ -248,3 +248,122 @@ exports.getUser = factory.getOne(User);
 exports.updateUser = factory.updateOne(User);
 
 exports.deleteUser = factory.deleteOne(User);
+
+// Leaderboard: School-level
+exports.getSchoolLeaderboard = catchAsync(async (req, res, next) => {
+  const currentUser = await User.findById(req.user._id).populate(
+    "school_id",
+    "name city",
+  );
+
+  if (!currentUser) {
+    return next(new AppError("User not found", 404));
+  }
+
+  if (!currentUser.school_id) {
+    return next(new AppError("User does not belong to a school", 400));
+  }
+
+  // Get top 100 users from the same school
+  const top100Users = await User.find({ school_id: currentUser.school_id })
+    .select("name points school_id")
+    .populate("school_id", "name")
+    .sort({ points: -1 })
+    .limit(100)
+    .lean();
+
+  // Create leaderboard with ranks
+  const leaderboard = top100Users.map((user, index) => ({
+    rank: index + 1,
+    name: user.name,
+    points: user.points,
+    school: user.school_id?.name || "",
+    isCurrentUser: user._id.toString() === currentUser._id.toString(),
+  }));
+
+  // Check if current user is in top 100
+  const currentUserInTop100 = leaderboard.find((entry) => entry.isCurrentUser);
+
+  // If not in top 100, calculate actual rank and add as 101st item
+  if (!currentUserInTop100) {
+    const usersAhead = await User.countDocuments({
+      school_id: currentUser.school_id,
+      points: { $gt: currentUser.points },
+    });
+
+    const actualRank = usersAhead + 1;
+
+    leaderboard.push({
+      rank: actualRank,
+      name: currentUser.name,
+      points: currentUser.points,
+      school: currentUser.school_id?.name || "",
+      isCurrentUser: true,
+    });
+  }
+
+  res.status(200).json({
+    status: "success",
+    results: leaderboard.length,
+    data: {
+      leaderboard,
+    },
+  });
+});
+
+// Leaderboard: Iraq-level
+exports.getIraqLeaderboard = catchAsync(async (req, res, next) => {
+  const currentUser = await User.findById(req.user._id).populate(
+    "school_id",
+    "name city",
+  );
+
+  if (!currentUser) {
+    return next(new AppError("User not found", 404));
+  }
+
+  // Get top 100 users from all of Iraq
+  const top100Users = await User.find()
+    .select("name points school_id")
+    .populate("school_id", "name")
+    .sort({ points: -1 })
+    .limit(100)
+    .lean();
+
+  // Create leaderboard with ranks
+  const leaderboard = top100Users.map((user, index) => ({
+    rank: index + 1,
+    name: user.name,
+    points: user.points,
+    school: user.school_id?.name || "",
+    isCurrentUser: user._id.toString() === currentUser._id.toString(),
+  }));
+
+  // Check if current user is in top 100
+  const currentUserInTop100 = leaderboard.find((entry) => entry.isCurrentUser);
+
+  // If not in top 100, calculate actual rank and add as 101st item
+  if (!currentUserInTop100) {
+    const usersAhead = await User.countDocuments({
+      points: { $gt: currentUser.points },
+    });
+
+    const actualRank = usersAhead + 1;
+
+    leaderboard.push({
+      rank: actualRank,
+      name: currentUser.name,
+      points: currentUser.points,
+      school: currentUser.school_id?.name || "",
+      isCurrentUser: true,
+    });
+  }
+
+  res.status(200).json({
+    status: "success",
+    results: leaderboard.length,
+    data: {
+      leaderboard,
+    },
+  });
+});
