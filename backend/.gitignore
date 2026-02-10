@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Environment files
+config.env
+.env
+.env.local
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+
+# Editor directories
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Uploads
+public/user-challenges/*
+!public/user-challenges/.gitkeep
