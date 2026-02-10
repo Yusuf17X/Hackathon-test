@@ -23,7 +23,7 @@ const userChallengeSchema = new mongoose.Schema(
       required: [true, "A user challenge must contain a proof url!"],
     },
     status: {
-      type: "String",
+      type: String,
       enum: {
         values: ["pending", "approved", "rejected"],
         message: "{VALUE} is not a valid value!",
