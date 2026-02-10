@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const slugify = require("slugify");
 
 const schoolSchema = new mongoose.Schema(
   {
@@ -11,7 +10,6 @@ const schoolSchema = new mongoose.Schema(
       minlength: [2, "Name too short!"],
       maxlength: [100, "Name too long!"],
     },
-    slug: String,
     city: {
       type: String,
       required: [true, "The city of the school is required!"],
@@ -23,10 +21,6 @@ const schoolSchema = new mongoose.Schema(
     timestamps: true,
   },
 );
-
-schoolSchema.pre("save", function () {
-  this.slug = slugify(this.name, { lower: true });
-});
 
 const School = mongoose.model("School", schoolSchema);
 
