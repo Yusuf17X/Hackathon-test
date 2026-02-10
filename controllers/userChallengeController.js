@@ -54,8 +54,10 @@ exports.createUserChallenge = catchAsync(async (req, res, next) => {
   });
 
   // Populate the userChallenge to return challenge data
-  await userChallenge.populate("challenge_id");
-  await userChallenge.populate("user_id", "name email");
+  await userChallenge.populate([
+    { path: "challenge_id" },
+    { path: "user_id", select: "name email" },
+  ]);
 
   res.status(201).json({
     status: "success",
@@ -158,8 +160,10 @@ exports.updateUserChallengeStatus = catchAsync(async (req, res, next) => {
   await userChallenge.save();
 
   // Populate for response
-  await userChallenge.populate("challenge_id", "name description points");
-  await userChallenge.populate("user_id", "name email");
+  await userChallenge.populate([
+    { path: "challenge_id", select: "name description points" },
+    { path: "user_id", select: "name email" },
+  ]);
 
   res.status(200).json({
     status: "success",
