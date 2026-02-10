@@ -3,6 +3,7 @@ const User = require('../models/userModel');
 const School = require('../models/schoolModel');
 const Challenge = require('../models/challengeModel');
 const UserChallenge = require('../models/userChallengeModel');
+const { calculateTotalImpact } = require('../utils/ecoImpact');
 
 // GET /api/v1/dashboard/public - No authentication required
 exports.getPublicDashboard = catchAsync(async (req, res, next) => {
@@ -10,27 +11,8 @@ exports.getPublicDashboard = catchAsync(async (req, res, next) => {
   const approvedChallenges = await UserChallenge.find({ status: 'approved' })
     .populate('challenge_id');
 
-  // 2. Calculate total eco impact
-  let totalImpact = {
-    co2SavedKg: 0,
-    co2AbsorbedKgPerYear: 0,
-    waterSavedLiters: 0,
-    plasticSavedGrams: 0,
-    energySavedKwh: 0,
-    treesEquivalent: 0,
-  };
-
-  approvedChallenges.forEach(uc => {
-    if (uc.challenge_id && uc.challenge_id.ecoImpact) {
-      const impact = uc.challenge_id.ecoImpact;
-      totalImpact.co2SavedKg += impact.co2SavedKg || 0;
-      totalImpact.co2AbsorbedKgPerYear += impact.co2AbsorbedKgPerYear || 0;
-      totalImpact.waterSavedLiters += impact.waterSavedLiters || 0;
-      totalImpact.plasticSavedGrams += impact.plasticSavedGrams || 0;
-      totalImpact.energySavedKwh += impact.energySavedKwh || 0;
-      totalImpact.treesEquivalent += impact.treesEquivalent || 0;
-    }
-  });
+  // 2. Calculate total eco impact using utility function
+  const totalImpact = calculateTotalImpact(approvedChallenges);
 
   // 3. Get counts
   const totalUsers = await User.countDocuments({ active: { $ne: false } });
