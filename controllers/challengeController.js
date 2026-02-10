@@ -41,12 +41,21 @@ exports.getAllChallenges = catchAsync(async (req, res, next) => {
 
 /**
  * Get available challenges for the authenticated user
- * Returns daily and weekly challenges with their completion status
+ * Returns challenges with their completion status
  * Filters based on UTC day/week boundaries
+ * Optionally filters by challenge_type (solo or school_task)
  */
 exports.getAvailableChallenges = catchAsync(async (req, res, next) => {
-  // Get all active challenges
-  const challenges = await Challenge.find({ isActive: true });
+  // Build filter for active challenges
+  const filter = { isActive: true };
+
+  // Add challenge_type filter if provided (solo or school_task)
+  if (req.query.challenge_type) {
+    filter.challenge_type = req.query.challenge_type;
+  }
+
+  // Get challenges based on filter
+  const challenges = await Challenge.find(filter);
 
   // Get user's challenge submissions
   const userChallenges = await UserChallenge.find({
@@ -59,24 +68,11 @@ exports.getAvailableChallenges = catchAsync(async (req, res, next) => {
     userChallenges
   );
 
-  // Separate by frequency
-  const dailyChallenges = challengesWithStatus.filter(
-    (c) => c.frequency === "daily"
-  );
-  const weeklyChallenges = challengesWithStatus.filter(
-    (c) => c.frequency === "weekly"
-  );
-  const oneTimeChallenges = challengesWithStatus.filter(
-    (c) => c.frequency === "one-time"
-  );
-
   res.status(200).json({
     status: "success",
+    results: challengesWithStatus.length,
     data: {
-      daily: dailyChallenges,
-      weekly: weeklyChallenges,
-      oneTime: oneTimeChallenges,
-      all: challengesWithStatus,
+      challenges: challengesWithStatus,
     },
   });
 });
