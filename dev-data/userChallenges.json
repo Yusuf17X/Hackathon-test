@@ -1,0 +1,72 @@
+[
+  {
+    "_id": "60a5b5c3f5d4e1a2b3c4d5e1",
+    "user_id": "60a401c3f5d4e1a2b3c4d001",
+    "challenge_id": "60a2b5c3f5d4e1a2b3c4d5e1",
+    "proof_url": "https://example.com/proofs/tree-planting-1.jpg",
+    "status": "approved"
+  },
+  {
+    "_id": "60a5b5c3f5d4e1a2b3c4d5e2",
+    "user_id": "60a402c3f5d4e1a2b3c4d002",
+    "challenge_id": "60a2b5c3f5d4e1a2b3c4d5e2",
+    "proof_url": "https://example.com/proofs/recycle-plastic-1.jpg",
+    "status": "processing"
+  },
+  {
+    "_id": "60a5b5c3f5d4e1a2b3c4d5e3",
+    "user_id": "60a403c3f5d4e1a2b3c4d003",
+    "challenge_id": "60a2b5c3f5d4e1a2b3c4d5e3",
+    "proof_url": "https://example.com/proofs/water-saving-1.jpg",
+    "status": "approved"
+  },
+  {
+    "_id": "60a5b5c3f5d4e1a2b3c4d5e4",
+    "user_id": "60a404c3f5d4e1a2b3c4d004",
+    "challenge_id": "60a2b5c3f5d4e1a2b3c4d5e4",
+    "proof_url": "https://example.com/proofs/energy-saving-1.jpg",
+    "status": "rejected"
+  },
+  {
+    "_id": "60a5b5c3f5d4e1a2b3c4d5e5",
+    "user_id": "60a405c3f5d4e1a2b3c4d005",
+    "challenge_id": "60a2b5c3f5d4e1a2b3c4d5e5",
+    "proof_url": "https://example.com/proofs/green-transport-1.jpg",
+    "status": "approved"
+  },
+  {
+    "_id": "60a5b5c3f5d4e1a2b3c4d5e6",
+    "user_id": "60a406c3f5d4e1a2b3c4d006",
+    "challenge_id": "60a2b5c3f5d4e1a2b3c4d5e6",
+    "proof_url": "https://example.com/proofs/beach-cleanup-1.jpg",
+    "status": "processing"
+  },
+  {
+    "_id": "60a5b5c3f5d4e1a2b3c4d5e7",
+    "user_id": "60a407c3f5d4e1a2b3c4d007",
+    "challenge_id": "60a2b5c3f5d4e1a2b3c4d5e7",
+    "proof_url": "https://example.com/proofs/reusable-bag-1.jpg",
+    "status": "approved"
+  },
+  {
+    "_id": "60a5b5c3f5d4e1a2b3c4d5e8",
+    "user_id": "60a408c3f5d4e1a2b3c4d008",
+    "challenge_id": "60a2b5c3f5d4e1a2b3c4d5e8",
+    "proof_url": "https://example.com/proofs/compost-1.jpg",
+    "status": "approved"
+  },
+  {
+    "_id": "60a5b5c3f5d4e1a2b3c4d5e9",
+    "user_id": "60a409c3f5d4e1a2b3c4d009",
+    "challenge_id": "60a2b5c3f5d4e1a2b3c4d5e9",
+    "proof_url": "https://example.com/proofs/solar-power-1.jpg",
+    "status": "processing"
+  },
+  {
+    "_id": "60a5b5c3f5d4e1a2b3c4d5ea",
+    "user_id": "60a410c3f5d4e1a2b3c4d010",
+    "challenge_id": "60a2b5c3f5d4e1a2b3c4d5ea",
+    "proof_url": "https://example.com/proofs/zero-waste-lunch-1.jpg",
+    "status": "approved"
+  }
+]

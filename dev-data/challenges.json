@@ -1,0 +1,422 @@
+[
+  {
+    "_id": "60a2b5c3f5d4e1a2b3c4d5e1",
+    "name": "تحدي زراعة شجرة",
+    "description": "ازرع شجرة في حديقة منزلك أو في مدرستك والتقط صورة لها",
+    "points": 50,
+    "emoji": "🌳",
+    "isActive": true,
+    "challenge_type": "solo",
+    "slug": "thdy-zrat-shjr"
+  },
+  {
+    "_id": "60a2b5c3f5d4e1a2b3c4d5e2",
+    "name": "Recycle Plastic Challenge",
+    "description": "Collect and recycle at least 10 plastic bottles from your neighborhood",
+    "points": 30,
+    "emoji": "♻️",
+    "isActive": true,
+    "challenge_type": "solo",
+    "slug": "recycle-plastic-challenge"
+  },
+  {
+    "_id": "60a2b5c3f5d4e1a2b3c4d5e3",
+    "name": "تحدي توفير الماء",
+    "description": "التزم بتوفير الماء لمدة أسبوع وسجل كمية الماء المحفوظة",
+    "points": 40,
+    "emoji": "💧",
+    "isActive": true,
+    "challenge_type": "school_task",
+    "slug": "thdy-twfyr-alma"
+  },
+  {
+    "_id": "60a2b5c3f5d4e1a2b3c4d5e4",
+    "name": "Energy Saving Week",
+    "description": "Turn off lights and devices when not in use for one week",
+    "points": 35,
+    "emoji": "💡",
+    "isActive": true,
+    "challenge_type": "solo",
+    "slug": "energy-saving-week"
+  },
+  {
+    "_id": "60a2b5c3f5d4e1a2b3c4d5e5",
+    "name": "تحدي النقل الأخضر",
+    "description": "استخدم الدراجة أو المشي بدلاً من السيارة لمدة 5 أيام",
+    "points": 45,
+    "emoji": "🚴",
+    "isActive": true,
+    "challenge_type": "solo",
+    "slug": "thdy-alnql-alakhdr"
+  },
+  {
+    "_id": "60a2b5c3f5d4e1a2b3c4d5e6",
+    "name": "Beach Cleanup Day",
+    "description": "Organize or participate in a beach cleanup activity",
+    "points": 60,
+    "emoji": "🏖️",
+    "isActive": true,
+    "challenge_type": "school_task",
+    "slug": "beach-cleanup-day"
+  },
+  {
+    "_id": "60a2b5c3f5d4e1a2b3c4d5e7",
+    "name": "تحدي الحقيبة القماشية",
+    "description": "استبدل الأكياس البلاستيكية بحقائب قماشية لمدة شهر",
+    "points": 25,
+    "emoji": "🛍️",
+    "isActive": true,
+    "challenge_type": "solo",
+    "slug": "thdy-alhqyb-alqmasyy"
+  },
+  {
+    "_id": "60a2b5c3f5d4e1a2b3c4d5e8",
+    "name": "Compost Creation",
+    "description": "Create a compost bin and start composting organic waste",
+    "points": 55,
+    "emoji": "🥬",
+    "isActive": true,
+    "challenge_type": "solo",
+    "slug": "compost-creation"
+  },
+  {
+    "_id": "60a2b5c3f5d4e1a2b3c4d5e9",
+    "name": "تحدي الطاقة الشمسية",
+    "description": "استخدم شاحن طاقة شمسية لأجهزتك لمدة أسبوع",
+    "points": 40,
+    "emoji": "☀️",
+    "isActive": true,
+    "challenge_type": "solo",
+    "slug": "thdy-altaq-alshmsyy"
+  },
+  {
+    "_id": "60a2b5c3f5d4e1a2b3c4d5ea",
+    "name": "Zero Waste Lunch",
+    "description": "Pack a completely zero-waste lunch for 5 school days",
+    "points": 30,
+    "emoji": "🥗",
+    "isActive": true,
+    "challenge_type": "school_task",
+    "slug": "zero-waste-lunch"
+  },
+  {
+    "_id": "60a2b5c3f5d4e1a2b3c4d5eb",
+    "name": "تحدي الزراعة المنزلية",
+    "description": "ازرع خضروات في حديقة منزلك وارعها لمدة شهر",
+    "points": 50,
+    "emoji": "🥕",
+    "isActive": true,
+    "challenge_type": "solo",
+    "slug": "thdy-alzrat-almnzlyy"
+  },
+  {
+    "_id": "60a2b5c3f5d4e1a2b3c4d5ec",
+    "name": "Environmental Documentary",
+    "description": "Watch an environmental documentary and write a summary",
+    "points": 20,
+    "emoji": "🎬",
+    "isActive": true,
+    "challenge_type": "school_task",
+    "slug": "environmental-documentary"
+  },
+  {
+    "_id": "60a2b5c3f5d4e1a2b3c4d5ed",
+    "name": "تحدي الحد من الطعام المهدر",
+    "description": "قلل من هدر الطعام في منزلك لمدة أسبوعين",
+    "points": 35,
+    "emoji": "🍽️",
+    "isActive": true,
+    "challenge_type": "solo",
+    "slug": "thdy-alhd-mn-altam-almhdr"
+  },
+  {
+    "_id": "60a2b5c3f5d4e1a2b3c4d5ee",
+    "name": "Eco-Friendly Shopping",
+    "description": "Buy only eco-friendly and sustainable products for one month",
+    "points": 40,
+    "emoji": "🛒",
+    "isActive": true,
+    "challenge_type": "solo",
+    "slug": "eco-friendly-shopping"
+  },
+  {
+    "_id": "60a2b5c3f5d4e1a2b3c4d5ef",
+    "name": "تحدي الورق المعاد تدويره",
+    "description": "استخدم الورق المعاد تدويره فقط في مدرستك لمدة شهر",
+    "points": 30,
+    "emoji": "📄",
+    "isActive": true,
+    "challenge_type": "school_task",
+    "slug": "thdy-alwrq-almad-tdwyrh"
+  },
+  {
+    "_id": "60a2b5c3f5d4e1a2b3c4d5f0",
+    "name": "Wildlife Photography",
+    "description": "Take photos of local wildlife and create an awareness presentation",
+    "points": 45,
+    "emoji": "📸",
+    "isActive": true,
+    "challenge_type": "solo",
+    "slug": "wildlife-photography"
+  },
+  {
+    "_id": "60a2b5c3f5d4e1a2b3c4d5f1",
+    "name": "تحدي المياه الجوفية",
+    "description": "ابحث عن طرق لحماية المياه الجوفية واكتب تقريراً",
+    "points": 35,
+    "emoji": "🏞️",
+    "isActive": true,
+    "challenge_type": "school_task",
+    "slug": "thdy-almyah-aljwfyy"
+  },
+  {
+    "_id": "60a2b5c3f5d4e1a2b3c4d5f2",
+    "name": "Reusable Container Week",
+    "description": "Use only reusable containers for food and drinks for one week",
+    "points": 25,
+    "emoji": "🥤",
+    "isActive": true,
+    "challenge_type": "solo",
+    "slug": "reusable-container-week"
+  },
+  {
+    "_id": "60a2b5c3f5d4e1a2b3c4d5f3",
+    "name": "تحدي تنظيف الحي",
+    "description": "نظم حملة تنظيف لحيّك مع أصدقائك",
+    "points": 50,
+    "emoji": "🧹",
+    "isActive": true,
+    "challenge_type": "solo",
+    "slug": "thdy-tnzyf-alhy"
+  },
+  {
+    "_id": "60a2b5c3f5d4e1a2b3c4d5f4",
+    "name": "Green School Campaign",
+    "description": "Create and implement a green initiative in your school",
+    "points": 65,
+    "emoji": "🏫",
+    "isActive": true,
+    "challenge_type": "school_task",
+    "slug": "green-school-campaign"
+  },
+  {
+    "_id": "60a2b5c3f5d4e1a2b3c4d5f5",
+    "name": "تحدي إعادة التدوير الإلكتروني",
+    "description": "اجمع الأجهزة الإلكترونية القديمة وأعد تدويرها بشكل صحيح",
+    "points": 45,
+    "emoji": "💻",
+    "isActive": true,
+    "challenge_type": "solo",
+    "slug": "thdy-ead-altdwyr-alelktrwny"
+  },
+  {
+    "_id": "60a2b5c3f5d4e1a2b3c4d5f6",
+    "name": "Air Quality Monitor",
+    "description": "Monitor air quality in your area for a week and report findings",
+    "points": 40,
+    "emoji": "🌫️",
+    "isActive": true,
+    "challenge_type": "school_task",
+    "slug": "air-quality-monitor"
+  },
+  {
+    "_id": "60a2b5c3f5d4e1a2b3c4d5f7",
+    "name": "تحدي الطاقة المتجددة",
+    "description": "ابحث عن مصادر الطاقة المتجددة وشارك ما تعلمته",
+    "points": 35,
+    "emoji": "⚡",
+    "isActive": true,
+    "challenge_type": "school_task",
+    "slug": "thdy-altaq-almtjddt"
+  },
+  {
+    "_id": "60a2b5c3f5d4e1a2b3c4d5f8",
+    "name": "DIY Birdhouse",
+    "description": "Build a birdhouse from recycled materials and place it in your garden",
+    "points": 35,
+    "emoji": "🐦",
+    "isActive": true,
+    "challenge_type": "solo",
+    "slug": "diy-birdhouse"
+  },
+  {
+    "_id": "60a2b5c3f5d4e1a2b3c4d5f9",
+    "name": "تحدي التوعية البيئية",
+    "description": "نظم ورشة عمل توعوية عن البيئة في مدرستك",
+    "points": 55,
+    "emoji": "🎓",
+    "isActive": true,
+    "challenge_type": "school_task",
+    "slug": "thdy-altwyy-albyy"
+  },
+  {
+    "_id": "60a2b5c3f5d4e1a2b3c4d5fa",
+    "name": "Eco-Friendly Transportation",
+    "description": "Calculate your carbon footprint and find ways to reduce it",
+    "points": 30,
+    "emoji": "🚗",
+    "isActive": true,
+    "challenge_type": "solo",
+    "slug": "eco-friendly-transportation"
+  },
+  {
+    "_id": "60a2b5c3f5d4e1a2b3c4d5fb",
+    "name": "تحدي حماية المحيطات",
+    "description": "تعلم عن تلوث المحيطات واكتب خطة عمل للمساعدة",
+    "points": 40,
+    "emoji": "🌊",
+    "isActive": true,
+    "challenge_type": "school_task",
+    "slug": "thdy-hmay-almhytat"
+  },
+  {
+    "_id": "60a2b5c3f5d4e1a2b3c4d5fc",
+    "name": "Native Plant Garden",
+    "description": "Create a garden with native plants that support local wildlife",
+    "points": 50,
+    "emoji": "🌺",
+    "isActive": true,
+    "challenge_type": "solo",
+    "slug": "native-plant-garden"
+  },
+  {
+    "_id": "60a2b5c3f5d4e1a2b3c4d5fd",
+    "name": "تحدي التسوق المحلي",
+    "description": "اشترِ من المزارعين والحرفيين المحليين لمدة شهر",
+    "points": 30,
+    "emoji": "🏪",
+    "isActive": true,
+    "challenge_type": "solo",
+    "slug": "thdy-altswq-almhly"
+  },
+  {
+    "_id": "60a2b5c3f5d4e1a2b3c4d5fe",
+    "name": "Climate Change Research",
+    "description": "Research climate change impacts in Saudi Arabia and present findings",
+    "points": 45,
+    "emoji": "🌡️",
+    "isActive": true,
+    "challenge_type": "school_task",
+    "slug": "climate-change-research"
+  },
+  {
+    "_id": "60a2b5c3f5d4e1a2b3c4d5ff",
+    "name": "تحدي الأزياء المستدامة",
+    "description": "تسوق ملابس مستعملة أو مستدامة بدلاً من الجديدة",
+    "points": 25,
+    "emoji": "👕",
+    "isActive": true,
+    "challenge_type": "solo",
+    "slug": "thdy-alazya-almstdam"
+  },
+  {
+    "_id": "60a2b5c3f5d4e1a2b3c4d600",
+    "name": "Water Conservation Project",
+    "description": "Design and implement a water conservation system at home",
+    "points": 50,
+    "emoji": "🚿",
+    "isActive": true,
+    "challenge_type": "solo",
+    "slug": "water-conservation-project"
+  },
+  {
+    "_id": "60a2b5c3f5d4e1a2b3c4d601",
+    "name": "تحدي النباتات الداخلية",
+    "description": "اعتنِ بنباتات داخلية لتحسين جودة الهواء في منزلك",
+    "points": 20,
+    "emoji": "🪴",
+    "isActive": true,
+    "challenge_type": "solo",
+    "slug": "thdy-alnbatat-aldakhliy"
+  },
+  {
+    "_id": "60a2b5c3f5d4e1a2b3c4d602",
+    "name": "Renewable Energy Fair",
+    "description": "Participate in or organize a renewable energy science fair",
+    "points": 60,
+    "emoji": "🔋",
+    "isActive": true,
+    "challenge_type": "school_task",
+    "slug": "renewable-energy-fair"
+  },
+  {
+    "_id": "60a2b5c3f5d4e1a2b3c4d603",
+    "name": "تحدي تقليل البصمة الكربونية",
+    "description": "احسب بصمتك الكربونية واعمل على تقليلها بنسبة 20%",
+    "points": 45,
+    "emoji": "🏭",
+    "isActive": true,
+    "challenge_type": "solo",
+    "slug": "thdy-tqlyl-albsm-alkrbwnyy"
+  },
+  {
+    "_id": "60a2b5c3f5d4e1a2b3c4d604",
+    "name": "Green Technology Workshop",
+    "description": "Attend or organize a workshop about green technology",
+    "points": 40,
+    "emoji": "🔬",
+    "isActive": true,
+    "challenge_type": "school_task",
+    "slug": "green-technology-workshop"
+  },
+  {
+    "_id": "60a2b5c3f5d4e1a2b3c4d605",
+    "name": "تحدي الغابات الحضرية",
+    "description": "ساهم في مبادرة لزراعة غابة حضرية في مدينتك",
+    "points": 65,
+    "emoji": "🌲",
+    "isActive": true,
+    "challenge_type": "school_task",
+    "slug": "thdy-alghabat-alhdry"
+  },
+  {
+    "_id": "60a2b5c3f5d4e1a2b3c4d606",
+    "name": "Upcycling Challenge",
+    "description": "Transform old items into useful products through upcycling",
+    "points": 35,
+    "emoji": "🎨",
+    "isActive": true,
+    "challenge_type": "solo",
+    "slug": "upcycling-challenge"
+  },
+  {
+    "_id": "60a2b5c3f5d4e1a2b3c4d607",
+    "name": "تحدي الحفاظ على التنوع البيولوجي",
+    "description": "ابحث عن الأنواع المهددة بالانقراض في منطقتك واكتب تقريراً",
+    "points": 40,
+    "emoji": "🦋",
+    "isActive": true,
+    "challenge_type": "school_task",
+    "slug": "thdy-alhfaz-aly-altnw-albyylwjy"
+  },
+  {
+    "_id": "60a2b5c3f5d4e1a2b3c4d608",
+    "name": "Smart Home Energy Audit",
+    "description": "Conduct an energy audit of your home and implement improvements",
+    "points": 45,
+    "emoji": "🏠",
+    "isActive": true,
+    "challenge_type": "solo",
+    "slug": "smart-home-energy-audit"
+  },
+  {
+    "_id": "60a2b5c3f5d4e1a2b3c4d609",
+    "name": "تحدي المدن المستدامة",
+    "description": "صمم نموذجاً لمدينة مستدامة مع مراعاة البيئة",
+    "points": 55,
+    "emoji": "🏙️",
+    "isActive": true,
+    "challenge_type": "school_task",
+    "slug": "thdy-almdyn-almstdam"
+  },
+  {
+    "_id": "60a2b5c3f5d4e1a2b3c4d60a",
+    "name": "Eco-Friendly Cleaning Products",
+    "description": "Make and use homemade eco-friendly cleaning products for a month",
+    "points": 30,
+    "emoji": "🧴",
+    "isActive": true,
+    "challenge_type": "solo",
+    "slug": "eco-friendly-cleaning-products"
+  }
+]

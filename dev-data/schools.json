@@ -1,0 +1,62 @@
+[
+  {
+    "_id": "60a1b5c3f5d4e1a2b3c4d5e1",
+    "name": "مدرسة النور الثانوية",
+    "city": "Riyadh",
+    "slug": "mdrst-alnwr-althhanwy"
+  },
+  {
+    "_id": "60a1b5c3f5d4e1a2b3c4d5e2",
+    "name": "King Fahd International School",
+    "city": "Jeddah",
+    "slug": "king-fahd-international-school"
+  },
+  {
+    "_id": "60a1b5c3f5d4e1a2b3c4d5e3",
+    "name": "مدرسة الأمل الابتدائية",
+    "city": "Dammam",
+    "slug": "mdrst-alaml-alabtdayy"
+  },
+  {
+    "_id": "60a1b5c3f5d4e1a2b3c4d5e4",
+    "name": "Green Valley School",
+    "city": "Mecca",
+    "slug": "green-valley-school"
+  },
+  {
+    "_id": "60a1b5c3f5d4e1a2b3c4d5e5",
+    "name": "مدرسة الفيصل الثانوية",
+    "city": "Medina",
+    "slug": "mdrst-alfysl-althhanwy"
+  },
+  {
+    "_id": "60a1b5c3f5d4e1a2b3c4d5e6",
+    "name": "British International School",
+    "city": "Khobar",
+    "slug": "british-international-school"
+  },
+  {
+    "_id": "60a1b5c3f5d4e1a2b3c4d5e7",
+    "name": "مدرسة الشروق المتوسطة",
+    "city": "Abha",
+    "slug": "mdrst-alshrwq-almtwst"
+  },
+  {
+    "_id": "60a1b5c3f5d4e1a2b3c4d5e8",
+    "name": "Al-Andalus Academy",
+    "city": "Taif",
+    "slug": "al-andalus-academy"
+  },
+  {
+    "_id": "60a1b5c3f5d4e1a2b3c4d5e9",
+    "name": "مدرسة الخليج الثانوية",
+    "city": "Jubail",
+    "slug": "mdrst-alkhlij-althhanwy"
+  },
+  {
+    "_id": "60a1b5c3f5d4e1a2b3c4d5ea",
+    "name": "International School of Riyadh",
+    "city": "Riyadh",
+    "slug": "international-school-of-riyadh"
+  }
+]

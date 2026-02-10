@@ -1,0 +1,72 @@
+[
+  {
+    "_id": "60a3b5c3f5d4e1a2b3c4d5e1",
+    "name": "البداية الخضراء",
+    "icon": "🌱",
+    "requirement_type": "challenges_count",
+    "requirement_value": 5
+  },
+  {
+    "_id": "60a3b5c3f5d4e1a2b3c4d5e2",
+    "name": "Eco Warrior",
+    "icon": "⚔️",
+    "requirement_type": "challenges_count",
+    "requirement_value": 10
+  },
+  {
+    "_id": "60a3b5c3f5d4e1a2b3c4d5e3",
+    "name": "حامي البيئة",
+    "icon": "🛡️",
+    "requirement_type": "points_threshold",
+    "requirement_value": 100
+  },
+  {
+    "_id": "60a3b5c3f5d4e1a2b3c4d5e4",
+    "name": "Champion of Sustainability",
+    "icon": "🏆",
+    "requirement_type": "points_threshold",
+    "requirement_value": 250
+  },
+  {
+    "_id": "60a3b5c3f5d4e1a2b3c4d5e5",
+    "name": "سفير الأرض",
+    "icon": "🌍",
+    "requirement_type": "points_threshold",
+    "requirement_value": 500
+  },
+  {
+    "_id": "60a3b5c3f5d4e1a2b3c4d5e6",
+    "name": "Master Recycler",
+    "icon": "♻️",
+    "requirement_type": "specific_challenge",
+    "requirement_value": 1
+  },
+  {
+    "_id": "60a3b5c3f5d4e1a2b3c4d5e7",
+    "name": "بطل الطاقة",
+    "icon": "⚡",
+    "requirement_type": "challenges_count",
+    "requirement_value": 20
+  },
+  {
+    "_id": "60a3b5c3f5d4e1a2b3c4d5e8",
+    "name": "Ocean Protector",
+    "icon": "🌊",
+    "requirement_type": "specific_challenge",
+    "requirement_value": 2
+  },
+  {
+    "_id": "60a3b5c3f5d4e1a2b3c4d5e9",
+    "name": "أسطورة البيئة",
+    "icon": "⭐",
+    "requirement_type": "points_threshold",
+    "requirement_value": 1000
+  },
+  {
+    "_id": "60a3b5c3f5d4e1a2b3c4d5ea",
+    "name": "Climate Hero",
+    "icon": "🦸",
+    "requirement_type": "challenges_count",
+    "requirement_value": 30
+  }
+]

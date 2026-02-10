@@ -1,0 +1,52 @@
+[
+  {
+    "_id": "60a6b5c3f5d4e1a2b3c4d5e1",
+    "user_id": "60a401c3f5d4e1a2b3c4d001",
+    "badge_id": "60a3b5c3f5d4e1a2b3c4d5e1"
+  },
+  {
+    "_id": "60a6b5c3f5d4e1a2b3c4d5e2",
+    "user_id": "60a402c3f5d4e1a2b3c4d002",
+    "badge_id": "60a3b5c3f5d4e1a2b3c4d5e1"
+  },
+  {
+    "_id": "60a6b5c3f5d4e1a2b3c4d5e3",
+    "user_id": "60a403c3f5d4e1a2b3c4d003",
+    "badge_id": "60a3b5c3f5d4e1a2b3c4d5e2"
+  },
+  {
+    "_id": "60a6b5c3f5d4e1a2b3c4d5e4",
+    "user_id": "60a404c3f5d4e1a2b3c4d004",
+    "badge_id": "60a3b5c3f5d4e1a2b3c4d5e3"
+  },
+  {
+    "_id": "60a6b5c3f5d4e1a2b3c4d5e5",
+    "user_id": "60a405c3f5d4e1a2b3c4d005",
+    "badge_id": "60a3b5c3f5d4e1a2b3c4d5e2"
+  },
+  {
+    "_id": "60a6b5c3f5d4e1a2b3c4d5e6",
+    "user_id": "60a406c3f5d4e1a2b3c4d006",
+    "badge_id": "60a3b5c3f5d4e1a2b3c4d5e4"
+  },
+  {
+    "_id": "60a6b5c3f5d4e1a2b3c4d5e7",
+    "user_id": "60a407c3f5d4e1a2b3c4d007",
+    "badge_id": "60a3b5c3f5d4e1a2b3c4d5e1"
+  },
+  {
+    "_id": "60a6b5c3f5d4e1a2b3c4d5e8",
+    "user_id": "60a408c3f5d4e1a2b3c4d008",
+    "badge_id": "60a3b5c3f5d4e1a2b3c4d5e5"
+  },
+  {
+    "_id": "60a6b5c3f5d4e1a2b3c4d5e9",
+    "user_id": "60a409c3f5d4e1a2b3c4d009",
+    "badge_id": "60a3b5c3f5d4e1a2b3c4d5e6"
+  },
+  {
+    "_id": "60a6b5c3f5d4e1a2b3c4d5ea",
+    "user_id": "60a410c3f5d4e1a2b3c4d010",
+    "badge_id": "60a3b5c3f5d4e1a2b3c4d5e7"
+  }
+]
