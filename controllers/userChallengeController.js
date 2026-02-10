@@ -39,6 +39,12 @@ exports.createUserChallenge = catchAsync(async (req, res, next) => {
     return next(new AppError("Please provide a challenge_id!", 400));
   }
 
+  // Verify that challenge exists before creating UserChallenge
+  const challenge = await Challenge.findById(req.body.challenge_id);
+  if (!challenge) {
+    return next(new AppError("Challenge not found!", 404));
+  }
+
   // Create userChallenge with uploaded photo path
   const userChallenge = await UserChallenge.create({
     user_id: req.user._id,
@@ -47,16 +53,11 @@ exports.createUserChallenge = catchAsync(async (req, res, next) => {
     status: "pending",
   });
 
-  // Populate the userChallenge to return challenge data
+  // Populate the userChallenge to return data
   await userChallenge.populate([
     { path: "challenge_id" },
     { path: "user_id", select: "name email" },
   ]);
-
-  // Verify that challenge exists after populate
-  if (!userChallenge.challenge_id) {
-    return next(new AppError("Challenge not found!", 404));
-  }
 
   res.status(201).json({
     status: "success",
