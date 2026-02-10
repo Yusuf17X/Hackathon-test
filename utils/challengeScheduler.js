@@ -5,6 +5,10 @@
  * Weekly challenges reset at Sunday midnight UTC
  */
 
+// Time constants in milliseconds
+const MS_PER_DAY = 24 * 60 * 60 * 1000;
+const MS_PER_WEEK = 7 * 24 * 60 * 60 * 1000;
+
 /**
  * Get the start of current UTC day
  * @returns {Date} Start of current UTC day (midnight UTC)
@@ -46,7 +50,7 @@ const getUTCWeekStart = () => {
 const isWithinCurrentUTCDay = (date) => {
   if (!date) return false;
   const dayStart = getUTCDayStart();
-  const dayEnd = new Date(dayStart.getTime() + 24 * 60 * 60 * 1000);
+  const dayEnd = new Date(dayStart.getTime() + MS_PER_DAY);
   return date >= dayStart && date < dayEnd;
 };
 
@@ -58,7 +62,7 @@ const isWithinCurrentUTCDay = (date) => {
 const isWithinCurrentUTCWeek = (date) => {
   if (!date) return false;
   const weekStart = getUTCWeekStart();
-  const weekEnd = new Date(weekStart.getTime() + 7 * 24 * 60 * 60 * 1000);
+  const weekEnd = new Date(weekStart.getTime() + MS_PER_WEEK);
   return date >= weekStart && date < weekEnd;
 };
 
@@ -195,6 +199,8 @@ const getChallengesWithStatus = (challenges, userChallenges) => {
 };
 
 module.exports = {
+  MS_PER_DAY,
+  MS_PER_WEEK,
   getUTCDayStart,
   getUTCWeekStart,
   isWithinCurrentUTCDay,
