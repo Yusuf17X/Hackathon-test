@@ -1,7 +1,7 @@
-const exptess = require("express");
+const express = require("express");
 const userBadgeController = require("../controllers/userBadgeController");
 
-const router = exptess.Router();
+const router = express.Router();
 
 router
   .route("/")
