@@ -174,13 +174,13 @@ exports.updateUserChallengeStatus = catchAsync(async (req, res, next) => {
     // Update user points
     user.points += challenge.points;
 
-    // Update user streak
+    // Update user streak using UTC time for consistency
     const today = new Date();
-    today.setHours(0, 0, 0, 0);
+    today.setUTCHours(0, 0, 0, 0);
 
     if (user.lastActivityDate) {
       const lastActivity = new Date(user.lastActivityDate);
-      lastActivity.setHours(0, 0, 0, 0);
+      lastActivity.setUTCHours(0, 0, 0, 0);
 
       const daysDifference = Math.floor(
         (today - lastActivity) / (1000 * 60 * 60 * 24),
@@ -202,16 +202,19 @@ exports.updateUserChallengeStatus = catchAsync(async (req, res, next) => {
     user.lastActivityDate = new Date();
     await user.save({ validateBeforeSave: false });
 
+    // Count previously approved challenges (excluding current one)
+    const approvedChallengesCount = await UserChallenge.countDocuments({
+      user_id: user._id,
+      status: "approved",
+      _id: { $ne: userChallenge._id },
+    });
+
     // Check and award badges
     const allBadges = await Badge.find();
     const userBadges = await UserBadge.find({ user_id: user._id });
     const earnedBadgeIds = userBadges.map((ub) => ub.badge_id.toString());
 
-    // Count approved challenges
-    const approvedChallengesCount = await UserChallenge.countDocuments({
-      user_id: user._id,
-      status: "approved",
-    });
+    const badgesToAward = [];
 
     for (const badge of allBadges) {
       // Skip if already earned
@@ -226,17 +229,23 @@ exports.updateUserChallengeStatus = catchAsync(async (req, res, next) => {
           shouldAward = true;
         }
       } else if (badge.requirement_type === "challenges_count") {
-        if (approvedChallengesCount >= badge.requirement_value) {
+        // Add 1 to include the current challenge being approved
+        if (approvedChallengesCount + 1 >= badge.requirement_value) {
           shouldAward = true;
         }
       }
 
       if (shouldAward) {
-        await UserBadge.create({
+        badgesToAward.push({
           user_id: user._id,
           badge_id: badge._id,
         });
       }
+    }
+
+    // Batch insert all badges at once if any need to be awarded
+    if (badgesToAward.length > 0) {
+      await UserBadge.insertMany(badgesToAward);
     }
   }
 
