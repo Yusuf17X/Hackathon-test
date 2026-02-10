@@ -1,5 +1,4 @@
 const multer = require("multer");
-const factory = require("./handlerFactory");
 const UserChallenge = require("../models/userChallengeModel");
 const Challenge = require("../models/challengeModel");
 const User = require("../models/userModel");
@@ -81,7 +80,9 @@ exports.getAllUserChallenges = catchAsync(async (req, res, next) => {
   // Teacher can only see challenges for students in their school
   else if (req.user.role === "teacher") {
     // Get all users in the teacher's school
-    const schoolUsers = await User.find({ school_id: req.user.school_id }).select("_id");
+    const schoolUsers = await User.find({
+      school_id: req.user.school_id,
+    }).select("_id");
     const userIds = schoolUsers.map((u) => u._id);
     filter.user_id = { $in: userIds };
   }
@@ -148,7 +149,8 @@ exports.updateUserChallengeStatus = catchAsync(async (req, res, next) => {
     // Teacher can only approve/reject challenges from students in their school
     if (
       !userChallenge.user_id.school_id ||
-      userChallenge.user_id.school_id.toString() !== req.user.school_id.toString()
+      userChallenge.user_id.school_id.toString() !==
+        req.user.school_id.toString()
     ) {
       return next(
         new AppError(
@@ -267,7 +269,10 @@ exports.updateUserChallengeStatus = catchAsync(async (req, res, next) => {
   // Populate for response
   await userChallenge.populate([
     { path: "challenge_id", select: "name description points" },
-    { path: "user_id", select: "name email points currentStreak lastActivityDate" },
+    {
+      path: "user_id",
+      select: "name email points currentStreak lastActivityDate",
+    },
   ]);
 
   res.status(200).json({
