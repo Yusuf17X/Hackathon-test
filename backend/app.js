@@ -35,7 +35,6 @@ const corsOptions = {
   credentials: true,
 };
 app.use(cors(corsOptions));
-app.options("*", cors(corsOptions));
 
 const limiter = rateLimit({
   max: 100,
@@ -75,7 +74,8 @@ app.use("/api/v1/user-challenges", userChallengeRouter);
 app.use("/api/v1/user-badges", userBadgeRouter);
 app.use("/api/v1/dashboard", dashboardRouter);
 
-app.all("*/splat", (req, res, next) => {
+// 404 handler - must be after all other routes
+app.use((req, res, next) => {
   next(new appError(`Cant find ${req.originalUrl}`, 404));
 });
 
