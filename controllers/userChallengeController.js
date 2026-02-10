@@ -178,8 +178,8 @@ exports.updateUserChallengeStatus = catchAsync(async (req, res, next) => {
 
   // If status is being changed to 'approved' (and was not previously 'approved')
   if (wasNotApproved && isBeingApproved) {
-    // Update user points and streak
-    const user = await User.findById(userChallenge.user_id._id);
+    // Reuse the already populated user object instead of re-querying
+    const user = userChallenge.user_id;
     const challengePoints = userChallenge.challenge_id.points;
 
     // Add points (idempotent - only once)
@@ -201,16 +201,14 @@ exports.updateUserChallengeStatus = catchAsync(async (req, res, next) => {
         (today - lastActivityDay) / (1000 * 60 * 60 * 24),
       );
 
-      if (daysDiff === 0) {
-        // Last activity was today: keep currentStreak
-        // No change to currentStreak
-      } else if (daysDiff === 1) {
+      if (daysDiff === 1) {
         // Last activity was yesterday: increment streak
         user.currentStreak += 1;
-      } else {
+      } else if (daysDiff > 1) {
         // More than 1 day gap: reset streak
         user.currentStreak = 1;
       }
+      // If daysDiff === 0 (today), keep currentStreak unchanged
     } else {
       // No previous activity: start streak
       user.currentStreak = 1;

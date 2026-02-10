@@ -14,7 +14,7 @@ exports.getActiveChallenges = catchAsync(async (req, res, next) => {
   }
 
   // Set default sort if not provided
-  // Note: .sort({ createdAt: -1 }) means newest first (descending dates)
+  // Note: "-points,-createdAt" means descending by points, then descending by createdAt (newest first)
   const queryString = { ...req.query };
   if (!queryString.sort) {
     queryString.sort = "-points,-createdAt";
