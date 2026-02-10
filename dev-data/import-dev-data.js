@@ -14,14 +14,21 @@ const UserChallenge = require('./../models/userChallengeModel');
 const UserBadge = require('./../models/userBadgeModel');
 
 // Get MongoDB URI from environment or command line argument
-const DB = process.env.MONGODB_URI || process.argv[3];
+// Support both MONGODB_URI and DB environment variables
+let DB = process.env.MONGODB_URI || process.env.DB || process.argv[3];
+
+// Replace DATABASE_PASSWORD placeholder if needed
+if (DB && process.env.DATABASE_PASSWORD) {
+  DB = DB.replace('<DATABASE_PASSWORD>', process.env.DATABASE_PASSWORD);
+}
 
 if (!DB) {
-  console.error('❌ Error: MONGODB_URI is required!');
+  console.error('❌ Error: Database connection string is required!');
   console.log('Usage:');
   console.log('  node import-dev-data.js --import');
   console.log('  node import-dev-data.js --delete');
   console.log('  node import-dev-data.js --import <MONGODB_URI>');
+  console.log('\nMake sure MONGODB_URI or DB is set in config.env');
   process.exit(1);
 }
 
