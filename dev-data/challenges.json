@@ -33,17 +33,6 @@
     "slug": "thdy-twfyr-alma"
   },
   {
-    "_id": "60a2b5c3f5d4e1a2b3c4d5e4",
-    "name": "تحدي توفير الطاقة",
-    "description": "أطفئ الأضواء والأجهزة عندما لا تستخدمها لمدة أسبوع",
-    "points": 35,
-    "icon": "💡",
-    "isActive": true,
-    "challenge_type": "solo",
-    "frequency": "weekly",
-    "slug": "energy-saving-week"
-  },
-  {
     "_id": "60a2b5c3f5d4e1a2b3c4d5e5",
     "name": "تحدي النقل الأخضر",
     "description": "استخدم الدراجة أو المشي بدلاً من السيارة لمدة 5 أيام",
@@ -66,17 +55,6 @@
     "slug": "beach-cleanup-day"
   },
   {
-    "_id": "60a2b5c3f5d4e1a2b3c4d5e7",
-    "name": "تحدي الحقيبة القماشية",
-    "description": "استبدل الأكياس البلاستيكية بحقائب قماشية لمدة شهر",
-    "points": 25,
-    "icon": "🛍️",
-    "isActive": true,
-    "challenge_type": "solo",
-    "frequency": "weekly",
-    "slug": "thdy-alhqyb-alqmasyy"
-  },
-  {
     "_id": "60a2b5c3f5d4e1a2b3c4d5e8",
     "name": "تحدي صنع السماد العضوي",
     "description": "أنشئ صندوق سماد عضوي وابدأ في تحويل النفايات العضوية",
@@ -86,17 +64,6 @@
     "challenge_type": "solo",
     "frequency": "one-time",
     "slug": "compost-creation"
-  },
-  {
-    "_id": "60a2b5c3f5d4e1a2b3c4d5e9",
-    "name": "تحدي الطاقة الشمسية",
-    "description": "استخدم شاحن طاقة شمسية لأجهزتك لمدة أسبوع",
-    "points": 40,
-    "icon": "☀️",
-    "isActive": true,
-    "challenge_type": "solo",
-    "frequency": "weekly",
-    "slug": "thdy-altaq-alshmsyy"
   },
   {
     "_id": "60a2b5c3f5d4e1a2b3c4d5ea",
@@ -112,7 +79,7 @@
   {
     "_id": "60a2b5c3f5d4e1a2b3c4d5eb",
     "name": "تحدي الزراعة المنزلية",
-    "description": "ازرع خضروات في حديقة منزلك وارعها لمدة شهر",
+    "description": "ازرع خضروات في حديقة منزلك أو في أصص وشارك صوراً لنموها",
     "points": 50,
     "icon": "🥕",
     "isActive": true,
@@ -127,25 +94,14 @@
     "points": 20,
     "icon": "🎬",
     "isActive": true,
-    "challenge_type": "school_task",
+    "challenge_type": "solo",
     "frequency": "daily",
     "slug": "environmental-documentary"
   },
   {
-    "_id": "60a2b5c3f5d4e1a2b3c4d5ed",
-    "name": "تحدي الحد من الطعام المهدر",
-    "description": "قلل من هدر الطعام في منزلك لمدة أسبوعين",
-    "points": 35,
-    "icon": "🍽️",
-    "isActive": true,
-    "challenge_type": "solo",
-    "frequency": "weekly",
-    "slug": "thdy-alhd-mn-altam-almhdr"
-  },
-  {
     "_id": "60a2b5c3f5d4e1a2b3c4d5ee",
     "name": "تحدي التسوق الصديق للبيئة",
-    "description": "اشترِ منتجات صديقة للبيئة ومستدامة فقط لمدة شهر",
+    "description": "اشترِ منتجات صديقة للبيئة ومستدامة فقط",
     "points": 40,
     "icon": "🛒",
     "isActive": true,
@@ -163,17 +119,6 @@
     "challenge_type": "school_task",
     "frequency": "weekly",
     "slug": "thdy-alwrq-almad-tdwyrh"
-  },
-  {
-    "_id": "60a2b5c3f5d4e1a2b3c4d5f0",
-    "name": "تحدي تصوير الحياة البرية",
-    "description": "التقط صوراً للحياة البرية المحلية وأنشئ عرضاً توعوياً",
-    "points": 45,
-    "icon": "📸",
-    "isActive": true,
-    "challenge_type": "solo",
-    "frequency": "one-time",
-    "slug": "wildlife-photography"
   },
   {
     "_id": "60a2b5c3f5d4e1a2b3c4d5f1",
@@ -220,17 +165,6 @@
     "slug": "green-school-campaign"
   },
   {
-    "_id": "60a2b5c3f5d4e1a2b3c4d5f5",
-    "name": "تحدي إعادة التدوير الإلكتروني",
-    "description": "اجمع الأجهزة الإلكترونية القديمة وأعد تدويرها بشكل صحيح",
-    "points": 45,
-    "icon": "💻",
-    "isActive": true,
-    "challenge_type": "solo",
-    "frequency": "one-time",
-    "slug": "thdy-ead-altdwyr-alelktrwny"
-  },
-  {
     "_id": "60a2b5c3f5d4e1a2b3c4d5f6",
     "name": "تحدي مراقبة جودة الهواء",
     "description": "راقب جودة الهواء في منطقتك لمدة أسبوع وقدم النتائج",
@@ -253,17 +187,6 @@
     "slug": "thdy-altaq-almtjddt"
   },
   {
-    "_id": "60a2b5c3f5d4e1a2b3c4d5f8",
-    "name": "تحدي بناء بيت الطيور",
-    "description": "ابنِ بيت طيور من مواد معاد تدويرها وضعه في حديقتك",
-    "points": 35,
-    "icon": "🐦",
-    "isActive": true,
-    "challenge_type": "solo",
-    "frequency": "one-time",
-    "slug": "diy-birdhouse"
-  },
-  {
     "_id": "60a2b5c3f5d4e1a2b3c4d5f9",
     "name": "تحدي التوعية البيئية",
     "description": "نظم ورشة عمل توعوية عن البيئة في مدرستك",
@@ -275,42 +198,20 @@
     "slug": "thdy-altwyy-albyy"
   },
   {
-    "_id": "60a2b5c3f5d4e1a2b3c4d5fa",
-    "name": "تحدي النقل الصديق للبيئة",
-    "description": "احسب بصمتك الكربونية وابحث عن طرق لتقليلها",
-    "points": 30,
-    "icon": "🚗",
-    "isActive": true,
-    "challenge_type": "solo",
-    "frequency": "one-time",
-    "slug": "eco-friendly-transportation"
-  },
-  {
     "_id": "60a2b5c3f5d4e1a2b3c4d5fb",
-    "name": "تحدي حماية المحيطات",
-    "description": "تعلم عن تلوث المحيطات واكتب خطة عمل للمساعدة",
+    "name": "تحدي حماية الانهار",
+    "description": "تعلم عن تلوث الانهار واكتب خطة عمل للمساعدة",
     "points": 40,
     "icon": "🌊",
     "isActive": true,
     "challenge_type": "school_task",
     "frequency": "one-time",
-    "slug": "thdy-hmay-almhytat"
-  },
-  {
-    "_id": "60a2b5c3f5d4e1a2b3c4d5fc",
-    "name": "تحدي حديقة النباتات المحلية",
-    "description": "أنشئ حديقة بنباتات محلية تدعم الحياة البرية المحلية",
-    "points": 50,
-    "icon": "🌺",
-    "isActive": true,
-    "challenge_type": "solo",
-    "frequency": "one-time",
-    "slug": "native-plant-garden"
+    "slug": "thdy-hmay-alnhar"
   },
   {
     "_id": "60a2b5c3f5d4e1a2b3c4d5fd",
     "name": "تحدي التسوق المحلي",
-    "description": "اشترِ من المزارعين والحرفيين المحليين لمدة شهر",
+    "description": "اشترِ من المزارعين والحرفيين المحليين",
     "points": 30,
     "icon": "🏪",
     "isActive": true,
@@ -330,59 +231,26 @@
     "slug": "climate-change-research"
   },
   {
-    "_id": "60a2b5c3f5d4e1a2b3c4d5ff",
-    "name": "تحدي الأزياء المستدامة",
-    "description": "تسوق ملابس مستعملة أو مستدامة بدلاً من الجديدة",
-    "points": 25,
-    "icon": "👕",
-    "isActive": true,
-    "challenge_type": "solo",
-    "frequency": "weekly",
-    "slug": "thdy-alazya-almstdam"
-  },
-  {
-    "_id": "60a2b5c3f5d4e1a2b3c4d600",
-    "name": "تحدي مشروع توفير المياه",
-    "description": "صمم ونفذ نظام توفير المياه في المنزل",
-    "points": 50,
-    "icon": "🚿",
-    "isActive": true,
-    "challenge_type": "solo",
-    "frequency": "one-time",
-    "slug": "water-conservation-project"
-  },
-  {
     "_id": "60a2b5c3f5d4e1a2b3c4d601",
     "name": "تحدي النباتات الداخلية",
     "description": "اعتنِ بنباتات داخلية لتحسين جودة الهواء في منزلك",
-    "points": 20,
+    "points": 50,
     "icon": "🪴",
     "isActive": true,
     "challenge_type": "solo",
-    "frequency": "daily",
+    "frequency": "weekly",
     "slug": "thdy-alnbatat-aldakhliy"
   },
   {
     "_id": "60a2b5c3f5d4e1a2b3c4d602",
     "name": "تحدي معرض الطاقة المتجددة",
-    "description": "شارك في تنظيم معرض علمي للطاقة المتجددة أو نظمه",
+    "description": "شارك في تنظيم معرض علمي للطاقة المتجددة",
     "points": 60,
     "icon": "🔋",
     "isActive": true,
     "challenge_type": "school_task",
     "frequency": "one-time",
     "slug": "renewable-energy-fair"
-  },
-  {
-    "_id": "60a2b5c3f5d4e1a2b3c4d603",
-    "name": "تحدي تقليل البصمة الكربونية",
-    "description": "احسب بصمتك الكربونية واعمل على تقليلها بنسبة 20%",
-    "points": 45,
-    "icon": "🏭",
-    "isActive": true,
-    "challenge_type": "solo",
-    "frequency": "one-time",
-    "slug": "thdy-tqlyl-albsm-alkrbwnyy"
   },
   {
     "_id": "60a2b5c3f5d4e1a2b3c4d604",
@@ -394,17 +262,6 @@
     "challenge_type": "school_task",
     "frequency": "one-time",
     "slug": "green-technology-workshop"
-  },
-  {
-    "_id": "60a2b5c3f5d4e1a2b3c4d605",
-    "name": "تحدي الغابات الحضرية",
-    "description": "ساهم في مبادرة لزراعة غابة حضرية في مدينتك",
-    "points": 65,
-    "icon": "🌲",
-    "isActive": true,
-    "challenge_type": "school_task",
-    "frequency": "one-time",
-    "slug": "thdy-alghabat-alhdry"
   },
   {
     "_id": "60a2b5c3f5d4e1a2b3c4d606",
@@ -440,20 +297,9 @@
     "slug": "smart-home-energy-audit"
   },
   {
-    "_id": "60a2b5c3f5d4e1a2b3c4d609",
-    "name": "تحدي المدن المستدامة",
-    "description": "صمم نموذجاً لمدينة مستدامة مع مراعاة البيئة",
-    "points": 55,
-    "icon": "🏙️",
-    "isActive": true,
-    "challenge_type": "school_task",
-    "frequency": "one-time",
-    "slug": "thdy-almdyn-almstdam"
-  },
-  {
     "_id": "60a2b5c3f5d4e1a2b3c4d60a",
     "name": "تحدي منتجات التنظيف الصديقة للبيئة",
-    "description": "اصنع واستخدم منتجات تنظيف منزلية صديقة للبيئة لمدة شهر",
+    "description": "استخدم منتجات تنظيف منزلية صديقة للبيئة",
     "points": 30,
     "icon": "🧴",
     "isActive": true,
