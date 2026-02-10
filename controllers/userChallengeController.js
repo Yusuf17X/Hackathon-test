@@ -91,7 +91,7 @@ exports.getAllUserChallenges = catchAsync(async (req, res, next) => {
   }
 
   const userChallenges = await UserChallenge.find(filter)
-    .populate("challenge_id", "name description points emoji")
+    .populate("challenge_id", "name description points icon")
     .populate({
       path: "user_id",
       select: "name email school_id",

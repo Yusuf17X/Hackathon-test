@@ -37,6 +37,15 @@ const challengeSchema = new mongoose.Schema(
       default: "solo",
       required: [true, "A challenge must have a type!"],
     },
+    frequency: {
+      type: String,
+      enum: {
+        values: ["daily", "weekly", "one-time"],
+        message: "{VALUE} is not a valid frequency!",
+      },
+      default: "one-time",
+      required: [true, "A challenge must have a frequency!"],
+    },
   },
   {
     timestamps: true,

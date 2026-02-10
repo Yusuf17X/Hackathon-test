@@ -1,7 +1,9 @@
 const factory = require("./handlerFactory");
 const Challenge = require("../models/challengeModel");
+const UserChallenge = require("../models/userChallengeModel");
 const catchAsync = require("../utils/catchAsync");
 const APIFeatures = require("../utils/apiFeatures");
+const challengeScheduler = require("../utils/challengeScheduler");
 
 exports.getAllChallenges = catchAsync(async (req, res, next) => {
   // Build filter for isActive: true
@@ -33,6 +35,48 @@ exports.getAllChallenges = catchAsync(async (req, res, next) => {
     results: challenges.length,
     data: {
       challenges,
+    },
+  });
+});
+
+/**
+ * Get available challenges for the authenticated user
+ * Returns daily and weekly challenges with their completion status
+ * Filters based on UTC day/week boundaries
+ */
+exports.getAvailableChallenges = catchAsync(async (req, res, next) => {
+  // Get all active challenges
+  const challenges = await Challenge.find({ isActive: true });
+
+  // Get user's challenge submissions
+  const userChallenges = await UserChallenge.find({
+    user_id: req.user._id,
+  });
+
+  // Get challenges with completion status based on UTC boundaries
+  const challengesWithStatus = challengeScheduler.getChallengesWithStatus(
+    challenges,
+    userChallenges
+  );
+
+  // Separate by frequency
+  const dailyChallenges = challengesWithStatus.filter(
+    (c) => c.frequency === "daily"
+  );
+  const weeklyChallenges = challengesWithStatus.filter(
+    (c) => c.frequency === "weekly"
+  );
+  const oneTimeChallenges = challengesWithStatus.filter(
+    (c) => c.frequency === "one-time"
+  );
+
+  res.status(200).json({
+    status: "success",
+    data: {
+      daily: dailyChallenges,
+      weekly: weeklyChallenges,
+      oneTime: oneTimeChallenges,
+      all: challengesWithStatus,
     },
   });
 });
