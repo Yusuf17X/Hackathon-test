@@ -3,6 +3,8 @@ const factory = require("./handlerFactory");
 const UserChallenge = require("../models/userChallengeModel");
 const Challenge = require("../models/challengeModel");
 const User = require("../models/userModel");
+const Badge = require("../models/badgeModel");
+const UserBadge = require("../models/userBadgeModel");
 const catchAsync = require("../utils/catchAsync");
 const AppError = require("../utils/appError");
 
@@ -153,6 +155,98 @@ exports.updateUserChallengeStatus = catchAsync(async (req, res, next) => {
     return next(
       new AppError("You do not have permission to perform this action!", 403),
     );
+  }
+
+  // Only process if status is approved and challenge was previously pending
+  if (status === "approved" && userChallenge.status === "pending") {
+    // Get challenge details to award points
+    const challenge = await Challenge.findById(userChallenge.challenge_id);
+    if (!challenge) {
+      return next(new AppError("Challenge not found!", 404));
+    }
+
+    // Get user
+    const user = await User.findById(userChallenge.user_id);
+    if (!user) {
+      return next(new AppError("User not found!", 404));
+    }
+
+    // Update user points
+    user.points += challenge.points;
+
+    // Update user streak using UTC time for consistency
+    const today = new Date();
+    today.setUTCHours(0, 0, 0, 0);
+
+    if (user.lastActivityDate) {
+      const lastActivity = new Date(user.lastActivityDate);
+      lastActivity.setUTCHours(0, 0, 0, 0);
+
+      const daysDifference = Math.floor(
+        (today - lastActivity) / (1000 * 60 * 60 * 24),
+      );
+
+      if (daysDifference === 1) {
+        // Consecutive day
+        user.currentStreak += 1;
+      } else if (daysDifference > 1) {
+        // Streak broken
+        user.currentStreak = 1;
+      }
+      // If same day (daysDifference === 0), don't update streak
+    } else {
+      // First activity
+      user.currentStreak = 1;
+    }
+
+    user.lastActivityDate = new Date();
+    await user.save({ validateBeforeSave: false });
+
+    // Count previously approved challenges (excluding current one)
+    const approvedChallengesCount = await UserChallenge.countDocuments({
+      user_id: user._id,
+      status: "approved",
+      _id: { $ne: userChallenge._id },
+    });
+
+    // Check and award badges
+    const allBadges = await Badge.find();
+    const userBadges = await UserBadge.find({ user_id: user._id });
+    const earnedBadgeIds = userBadges.map((ub) => ub.badge_id.toString());
+
+    const badgesToAward = [];
+
+    for (const badge of allBadges) {
+      // Skip if already earned
+      if (earnedBadgeIds.includes(badge._id.toString())) {
+        continue;
+      }
+
+      let shouldAward = false;
+
+      if (badge.requirement_type === "points_threshold") {
+        if (user.points >= badge.requirement_value) {
+          shouldAward = true;
+        }
+      } else if (badge.requirement_type === "challenges_count") {
+        // Add 1 to include the current challenge being approved
+        if (approvedChallengesCount + 1 >= badge.requirement_value) {
+          shouldAward = true;
+        }
+      }
+
+      if (shouldAward) {
+        badgesToAward.push({
+          user_id: user._id,
+          badge_id: badge._id,
+        });
+      }
+    }
+
+    // Batch insert all badges at once if any need to be awarded
+    if (badgesToAward.length > 0) {
+      await UserBadge.insertMany(badgesToAward);
+    }
   }
 
   // Update the status
