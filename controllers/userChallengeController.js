@@ -3,6 +3,8 @@ const factory = require("./handlerFactory");
 const UserChallenge = require("../models/userChallengeModel");
 const Challenge = require("../models/challengeModel");
 const User = require("../models/userModel");
+const Badge = require("../models/badgeModel");
+const UserBadge = require("../models/userBadgeModel");
 const catchAsync = require("../utils/catchAsync");
 const AppError = require("../utils/appError");
 
@@ -123,11 +125,17 @@ exports.updateUserChallengeStatus = catchAsync(async (req, res, next) => {
     );
   }
 
-  // Find the userChallenge
-  const userChallenge = await UserChallenge.findById(req.params.id).populate({
-    path: "user_id",
-    select: "school_id",
-  });
+  // Find the userChallenge with challenge populated
+  const userChallenge = await UserChallenge.findById(req.params.id).populate([
+    {
+      path: "user_id",
+      select: "school_id points currentStreak lastActivityDate",
+    },
+    {
+      path: "challenge_id",
+      select: "name description points",
+    },
+  ]);
 
   if (!userChallenge) {
     return next(new AppError("UserChallenge not found!", 404));
@@ -155,20 +163,126 @@ exports.updateUserChallengeStatus = catchAsync(async (req, res, next) => {
     );
   }
 
+  // Track if we need to update points/streak/badges (idempotent check)
+  const wasNotApproved = userChallenge.status !== "approved";
+  const isBeingApproved = status === "approved";
+
   // Update the status
   userChallenge.status = status;
   await userChallenge.save();
 
+  let newlyAwardedBadges = [];
+  let updatedUser = null;
+
+  // If status is being changed to 'approved' (and was not previously 'approved')
+  if (wasNotApproved && isBeingApproved) {
+    // Update user points and streak
+    const user = await User.findById(userChallenge.user_id._id);
+    const challengePoints = userChallenge.challenge_id.points;
+
+    // Add points (idempotent - only once)
+    user.points += challengePoints;
+
+    // Update streak based on lastActivityDate
+    const now = new Date();
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
+    if (user.lastActivityDate) {
+      const lastActivity = new Date(user.lastActivityDate);
+      const lastActivityDay = new Date(
+        lastActivity.getFullYear(),
+        lastActivity.getMonth(),
+        lastActivity.getDate(),
+      );
+
+      const daysDiff = Math.floor(
+        (today - lastActivityDay) / (1000 * 60 * 60 * 24),
+      );
+
+      if (daysDiff === 0) {
+        // Last activity was today: keep currentStreak
+        // No change to currentStreak
+      } else if (daysDiff === 1) {
+        // Last activity was yesterday: increment streak
+        user.currentStreak += 1;
+      } else {
+        // More than 1 day gap: reset streak
+        user.currentStreak = 1;
+      }
+    } else {
+      // No previous activity: start streak
+      user.currentStreak = 1;
+    }
+
+    // Update lastActivityDate to now
+    user.lastActivityDate = now;
+
+    await user.save();
+    updatedUser = user;
+
+    // Check and award badges
+    const allBadges = await Badge.find({});
+
+    // Get user's existing badges
+    const existingUserBadges = await UserBadge.find({
+      user_id: user._id,
+    }).select("badge_id");
+    const earnedBadgeIds = existingUserBadges.map((ub) =>
+      ub.badge_id.toString(),
+    );
+
+    // Count approved challenges for this user
+    const approvedChallengesCount = await UserChallenge.countDocuments({
+      user_id: user._id,
+      status: "approved",
+    });
+
+    // Check each badge
+    for (const badge of allBadges) {
+      // Skip if already earned
+      if (earnedBadgeIds.includes(badge._id.toString())) {
+        continue;
+      }
+
+      let requirementMet = false;
+
+      if (badge.requirement_type === "points_threshold") {
+        requirementMet = user.points >= badge.requirement_value;
+      } else if (badge.requirement_type === "challenges_count") {
+        requirementMet = approvedChallengesCount >= badge.requirement_value;
+      }
+
+      // Award badge if requirement met
+      if (requirementMet) {
+        const newUserBadge = await UserBadge.create({
+          user_id: user._id,
+          badge_id: badge._id,
+        });
+        await newUserBadge.populate("badge_id");
+        newlyAwardedBadges.push(newUserBadge);
+      }
+    }
+  }
+
   // Populate for response
   await userChallenge.populate([
     { path: "challenge_id", select: "name description points" },
-    { path: "user_id", select: "name email" },
+    { path: "user_id", select: "name email points currentStreak lastActivityDate" },
   ]);
 
   res.status(200).json({
     status: "success",
     data: {
       userChallenge,
+      user: updatedUser
+        ? {
+            points: updatedUser.points,
+            currentStreak: updatedUser.currentStreak,
+            lastActivityDate: updatedUser.lastActivityDate,
+          }
+        : undefined,
+      newlyAwardedBadges:
+        newlyAwardedBadges.length > 0 ? newlyAwardedBadges : undefined,
     },
   });
 });

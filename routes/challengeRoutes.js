@@ -5,7 +5,7 @@ const router = express.Router();
 
 router
   .route("/")
-  .get(challengeController.getAllChallenges)
+  .get(challengeController.getActiveChallenges)
   .post(challengeController.createChallenge);
 
 router
