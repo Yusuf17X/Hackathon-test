@@ -15,6 +15,7 @@ const badgeRouter = require("./routes/badgeRoutes");
 const challengeRouter = require("./routes/challengeRoutes");
 const userChallengeRouter = require("./routes/userChallengeRoutes");
 const userBadgeRouter = require("./routes/userBadgeRoutes");
+const dashboardRouter = require("./routes/dashboardRoutes");
 const appError = require("./utils/appError");
 const globalErrorHandler = require("./controllers/errorController");
 
@@ -67,6 +68,7 @@ app.use("/api/v1/badges", badgeRouter);
 app.use("/api/v1/challenges", challengeRouter);
 app.use("/api/v1/user-challenges", userChallengeRouter);
 app.use("/api/v1/user-badges", userBadgeRouter);
+app.use("/api/v1/dashboard", dashboardRouter);
 
 app.all("*/splat", (req, res, next) => {
   next(new appError(`Cant find ${req.originalUrl}`, 404));

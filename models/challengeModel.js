@@ -46,6 +46,19 @@ const challengeSchema = new mongoose.Schema(
       default: "one-time",
       required: [true, "A challenge must have a frequency!"],
     },
+    ecoImpact: {
+      category: {
+        type: String,
+        enum: ['planting', 'recycling', 'water', 'transport', 'energy', 'cleanup', 'waste', 'awareness'],
+        required: [true, 'A challenge must have an eco impact category'],
+      },
+      co2SavedKg: { type: Number, default: 0 },
+      co2AbsorbedKgPerYear: { type: Number, default: 0 },
+      waterSavedLiters: { type: Number, default: 0 },
+      plasticSavedGrams: { type: Number, default: 0 },
+      energySavedKwh: { type: Number, default: 0 },
+      treesEquivalent: { type: Number, default: 0 },
+    },
   },
   {
     timestamps: true,
