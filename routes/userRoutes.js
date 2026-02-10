@@ -39,6 +39,18 @@ router.patch(
 // Delete user
 router.delete("/delete-me", authController.protect, userController.deleteMe);
 
+// Leaderboard routes
+router.get(
+  "/leaderboard/school",
+  authController.protect,
+  userController.getSchoolLeaderboard,
+);
+router.get(
+  "/leaderboard/iraq",
+  authController.protect,
+  userController.getIraqLeaderboard,
+);
+
 router.route("/").get(userController.getAllUsers);
 
 router
