@@ -84,12 +84,6 @@ const userSchema = new mongoose.Schema(
   },
 );
 
-// userSchema.virtual("school", {
-//   ref: "School",
-//   foreignField: "school_id",
-//   localField: "_id",
-// });
-
 userSchema.pre(/^find/, function () {
   this.find({ active: { $ne: false } });
 });
