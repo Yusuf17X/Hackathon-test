@@ -7,6 +7,7 @@ const Badge = require("../models/badgeModel");
 const UserBadge = require("../models/userBadgeModel");
 const catchAsync = require("../utils/catchAsync");
 const AppError = require("../utils/appError");
+const { generateEncouragingPhrase } = require("../utils/ecoImpact");
 
 // Multer configuration for disk storage
 const multerStorage = multer.diskStorage({
@@ -61,11 +62,18 @@ exports.createUserChallenge = catchAsync(async (req, res, next) => {
     { path: "user_id", select: "name email" },
   ]);
 
+  // Generate encouraging phrase
+  let encouragingPhrase = null;
+  if (userChallenge.challenge_id && userChallenge.challenge_id.ecoImpact) {
+    encouragingPhrase = generateEncouragingPhrase(userChallenge.challenge_id.ecoImpact);
+  }
+
   res.status(201).json({
     status: "success",
     data: {
       challenge: userChallenge.challenge_id,
       userChallenge,
+      encouragingPhrase,
     },
   });
 });

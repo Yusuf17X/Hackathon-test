@@ -8,7 +8,15 @@
     "isActive": true,
     "challenge_type": "solo",
     "frequency": "one-time",
-    "slug": "thdy-zrat-shjr"
+    "ecoImpact": {
+      "category": "planting",
+      "co2SavedKg": 0,
+      "co2AbsorbedKgPerYear": 22,
+      "waterSavedLiters": 0,
+      "plasticSavedGrams": 0,
+      "energySavedKwh": 0,
+      "treesEquivalent": 1
+    }
   },
   {
     "_id": "60a2b5c3f5d4e1a2b3c4d5e2",
@@ -19,7 +27,15 @@
     "isActive": true,
     "challenge_type": "solo",
     "frequency": "daily",
-    "slug": "recycle-plastic-challenge"
+    "ecoImpact": {
+      "category": "recycling",
+      "co2SavedKg": 0.6,
+      "co2AbsorbedKgPerYear": 0,
+      "waterSavedLiters": 0,
+      "plasticSavedGrams": 250,
+      "energySavedKwh": 0,
+      "treesEquivalent": 0
+    }
   },
   {
     "_id": "60a2b5c3f5d4e1a2b3c4d5e3",
@@ -30,7 +46,15 @@
     "isActive": true,
     "challenge_type": "school_task",
     "frequency": "weekly",
-    "slug": "thdy-twfyr-alma"
+    "ecoImpact": {
+      "category": "water",
+      "co2SavedKg": 0.5,
+      "co2AbsorbedKgPerYear": 0,
+      "waterSavedLiters": 50,
+      "plasticSavedGrams": 0,
+      "energySavedKwh": 0,
+      "treesEquivalent": 0
+    }
   },
   {
     "_id": "60a2b5c3f5d4e1a2b3c4d5e5",
@@ -41,7 +65,15 @@
     "isActive": true,
     "challenge_type": "solo",
     "frequency": "weekly",
-    "slug": "thdy-alnql-alakhdr"
+    "ecoImpact": {
+      "category": "transport",
+      "co2SavedKg": 5.25,
+      "co2AbsorbedKgPerYear": 0,
+      "waterSavedLiters": 0,
+      "plasticSavedGrams": 0,
+      "energySavedKwh": 0,
+      "treesEquivalent": 0
+    }
   },
   {
     "_id": "60a2b5c3f5d4e1a2b3c4d5e6",
@@ -52,7 +84,15 @@
     "isActive": true,
     "challenge_type": "school_task",
     "frequency": "one-time",
-    "slug": "beach-cleanup-day"
+    "ecoImpact": {
+      "category": "cleanup",
+      "co2SavedKg": 1,
+      "co2AbsorbedKgPerYear": 0,
+      "waterSavedLiters": 0,
+      "plasticSavedGrams": 500,
+      "energySavedKwh": 0,
+      "treesEquivalent": 0
+    }
   },
   {
     "_id": "60a2b5c3f5d4e1a2b3c4d5e8",
@@ -63,7 +103,15 @@
     "isActive": true,
     "challenge_type": "solo",
     "frequency": "one-time",
-    "slug": "compost-creation"
+    "ecoImpact": {
+      "category": "waste",
+      "co2SavedKg": 2,
+      "co2AbsorbedKgPerYear": 0,
+      "waterSavedLiters": 0,
+      "plasticSavedGrams": 0,
+      "energySavedKwh": 0,
+      "treesEquivalent": 0
+    }
   },
   {
     "_id": "60a2b5c3f5d4e1a2b3c4d5ea",
@@ -74,7 +122,15 @@
     "isActive": true,
     "challenge_type": "school_task",
     "frequency": "weekly",
-    "slug": "zero-waste-lunch"
+    "ecoImpact": {
+      "category": "waste",
+      "co2SavedKg": 0.5,
+      "co2AbsorbedKgPerYear": 0,
+      "waterSavedLiters": 0,
+      "plasticSavedGrams": 100,
+      "energySavedKwh": 0,
+      "treesEquivalent": 0
+    }
   },
   {
     "_id": "60a2b5c3f5d4e1a2b3c4d5eb",
@@ -85,7 +141,15 @@
     "isActive": true,
     "challenge_type": "solo",
     "frequency": "one-time",
-    "slug": "thdy-alzrat-almnzlyy"
+    "ecoImpact": {
+      "category": "planting",
+      "co2SavedKg": 0,
+      "co2AbsorbedKgPerYear": 10,
+      "waterSavedLiters": 0,
+      "plasticSavedGrams": 0,
+      "energySavedKwh": 0,
+      "treesEquivalent": 0.5
+    }
   },
   {
     "_id": "60a2b5c3f5d4e1a2b3c4d5ec",
@@ -96,7 +160,15 @@
     "isActive": true,
     "challenge_type": "solo",
     "frequency": "daily",
-    "slug": "environmental-documentary"
+    "ecoImpact": {
+      "category": "awareness",
+      "co2SavedKg": 0,
+      "co2AbsorbedKgPerYear": 0,
+      "waterSavedLiters": 0,
+      "plasticSavedGrams": 0,
+      "energySavedKwh": 0,
+      "treesEquivalent": 0
+    }
   },
   {
     "_id": "60a2b5c3f5d4e1a2b3c4d5ee",
@@ -107,7 +179,15 @@
     "isActive": true,
     "challenge_type": "solo",
     "frequency": "weekly",
-    "slug": "eco-friendly-shopping"
+    "ecoImpact": {
+      "category": "recycling",
+      "co2SavedKg": 0.3,
+      "co2AbsorbedKgPerYear": 0,
+      "waterSavedLiters": 0,
+      "plasticSavedGrams": 50,
+      "energySavedKwh": 0,
+      "treesEquivalent": 0
+    }
   },
   {
     "_id": "60a2b5c3f5d4e1a2b3c4d5ef",
@@ -118,7 +198,15 @@
     "isActive": true,
     "challenge_type": "school_task",
     "frequency": "weekly",
-    "slug": "thdy-alwrq-almad-tdwyrh"
+    "ecoImpact": {
+      "category": "recycling",
+      "co2SavedKg": 0.4,
+      "co2AbsorbedKgPerYear": 0,
+      "waterSavedLiters": 0,
+      "plasticSavedGrams": 0,
+      "energySavedKwh": 0,
+      "treesEquivalent": 0.1
+    }
   },
   {
     "_id": "60a2b5c3f5d4e1a2b3c4d5f1",
@@ -129,7 +217,15 @@
     "isActive": true,
     "challenge_type": "school_task",
     "frequency": "one-time",
-    "slug": "thdy-almyah-aljwfyy"
+    "ecoImpact": {
+      "category": "awareness",
+      "co2SavedKg": 0,
+      "co2AbsorbedKgPerYear": 0,
+      "waterSavedLiters": 0,
+      "plasticSavedGrams": 0,
+      "energySavedKwh": 0,
+      "treesEquivalent": 0
+    }
   },
   {
     "_id": "60a2b5c3f5d4e1a2b3c4d5f2",
@@ -140,7 +236,15 @@
     "isActive": true,
     "challenge_type": "solo",
     "frequency": "weekly",
-    "slug": "reusable-container-week"
+    "ecoImpact": {
+      "category": "recycling",
+      "co2SavedKg": 0.56,
+      "co2AbsorbedKgPerYear": 0,
+      "waterSavedLiters": 21,
+      "plasticSavedGrams": 175,
+      "energySavedKwh": 0,
+      "treesEquivalent": 0
+    }
   },
   {
     "_id": "60a2b5c3f5d4e1a2b3c4d5f3",
@@ -151,7 +255,15 @@
     "isActive": true,
     "challenge_type": "solo",
     "frequency": "weekly",
-    "slug": "thdy-tnzyf-alhy"
+    "ecoImpact": {
+      "category": "cleanup",
+      "co2SavedKg": 0.8,
+      "co2AbsorbedKgPerYear": 0,
+      "waterSavedLiters": 0,
+      "plasticSavedGrams": 400,
+      "energySavedKwh": 0,
+      "treesEquivalent": 0
+    }
   },
   {
     "_id": "60a2b5c3f5d4e1a2b3c4d5f4",
@@ -162,7 +274,15 @@
     "isActive": true,
     "challenge_type": "school_task",
     "frequency": "one-time",
-    "slug": "green-school-campaign"
+    "ecoImpact": {
+      "category": "awareness",
+      "co2SavedKg": 2,
+      "co2AbsorbedKgPerYear": 0,
+      "waterSavedLiters": 0,
+      "plasticSavedGrams": 0,
+      "energySavedKwh": 0,
+      "treesEquivalent": 0
+    }
   },
   {
     "_id": "60a2b5c3f5d4e1a2b3c4d5f6",
@@ -173,7 +293,15 @@
     "isActive": true,
     "challenge_type": "school_task",
     "frequency": "weekly",
-    "slug": "air-quality-monitor"
+    "ecoImpact": {
+      "category": "awareness",
+      "co2SavedKg": 0,
+      "co2AbsorbedKgPerYear": 0,
+      "waterSavedLiters": 0,
+      "plasticSavedGrams": 0,
+      "energySavedKwh": 0,
+      "treesEquivalent": 0
+    }
   },
   {
     "_id": "60a2b5c3f5d4e1a2b3c4d5f7",
@@ -184,7 +312,15 @@
     "isActive": true,
     "challenge_type": "school_task",
     "frequency": "one-time",
-    "slug": "thdy-altaq-almtjddt"
+    "ecoImpact": {
+      "category": "energy",
+      "co2SavedKg": 0,
+      "co2AbsorbedKgPerYear": 0,
+      "waterSavedLiters": 0,
+      "plasticSavedGrams": 0,
+      "energySavedKwh": 5,
+      "treesEquivalent": 0
+    }
   },
   {
     "_id": "60a2b5c3f5d4e1a2b3c4d5f9",
@@ -195,7 +331,15 @@
     "isActive": true,
     "challenge_type": "school_task",
     "frequency": "one-time",
-    "slug": "thdy-altwyy-albyy"
+    "ecoImpact": {
+      "category": "awareness",
+      "co2SavedKg": 1,
+      "co2AbsorbedKgPerYear": 0,
+      "waterSavedLiters": 0,
+      "plasticSavedGrams": 0,
+      "energySavedKwh": 0,
+      "treesEquivalent": 0
+    }
   },
   {
     "_id": "60a2b5c3f5d4e1a2b3c4d5fb",
@@ -206,7 +350,15 @@
     "isActive": true,
     "challenge_type": "school_task",
     "frequency": "one-time",
-    "slug": "thdy-hmay-alnhar"
+    "ecoImpact": {
+      "category": "water",
+      "co2SavedKg": 0,
+      "co2AbsorbedKgPerYear": 0,
+      "waterSavedLiters": 100,
+      "plasticSavedGrams": 0,
+      "energySavedKwh": 0,
+      "treesEquivalent": 0
+    }
   },
   {
     "_id": "60a2b5c3f5d4e1a2b3c4d5fd",
@@ -217,7 +369,15 @@
     "isActive": true,
     "challenge_type": "solo",
     "frequency": "weekly",
-    "slug": "thdy-altswq-almhly"
+    "ecoImpact": {
+      "category": "transport",
+      "co2SavedKg": 1.5,
+      "co2AbsorbedKgPerYear": 0,
+      "waterSavedLiters": 0,
+      "plasticSavedGrams": 0,
+      "energySavedKwh": 0,
+      "treesEquivalent": 0
+    }
   },
   {
     "_id": "60a2b5c3f5d4e1a2b3c4d5fe",
@@ -228,7 +388,15 @@
     "isActive": true,
     "challenge_type": "school_task",
     "frequency": "one-time",
-    "slug": "climate-change-research"
+    "ecoImpact": {
+      "category": "awareness",
+      "co2SavedKg": 0,
+      "co2AbsorbedKgPerYear": 0,
+      "waterSavedLiters": 0,
+      "plasticSavedGrams": 0,
+      "energySavedKwh": 0,
+      "treesEquivalent": 0
+    }
   },
   {
     "_id": "60a2b5c3f5d4e1a2b3c4d601",
@@ -239,7 +407,15 @@
     "isActive": true,
     "challenge_type": "solo",
     "frequency": "weekly",
-    "slug": "thdy-alnbatat-aldakhliy"
+    "ecoImpact": {
+      "category": "planting",
+      "co2SavedKg": 0,
+      "co2AbsorbedKgPerYear": 5,
+      "waterSavedLiters": 0,
+      "plasticSavedGrams": 0,
+      "energySavedKwh": 0,
+      "treesEquivalent": 0.25
+    }
   },
   {
     "_id": "60a2b5c3f5d4e1a2b3c4d602",
@@ -250,7 +426,15 @@
     "isActive": true,
     "challenge_type": "school_task",
     "frequency": "one-time",
-    "slug": "renewable-energy-fair"
+    "ecoImpact": {
+      "category": "energy",
+      "co2SavedKg": 0,
+      "co2AbsorbedKgPerYear": 0,
+      "waterSavedLiters": 0,
+      "plasticSavedGrams": 0,
+      "energySavedKwh": 10,
+      "treesEquivalent": 0
+    }
   },
   {
     "_id": "60a2b5c3f5d4e1a2b3c4d604",
@@ -261,7 +445,15 @@
     "isActive": true,
     "challenge_type": "school_task",
     "frequency": "one-time",
-    "slug": "green-technology-workshop"
+    "ecoImpact": {
+      "category": "energy",
+      "co2SavedKg": 0,
+      "co2AbsorbedKgPerYear": 0,
+      "waterSavedLiters": 0,
+      "plasticSavedGrams": 0,
+      "energySavedKwh": 3,
+      "treesEquivalent": 0
+    }
   },
   {
     "_id": "60a2b5c3f5d4e1a2b3c4d606",
@@ -272,7 +464,15 @@
     "isActive": true,
     "challenge_type": "solo",
     "frequency": "weekly",
-    "slug": "upcycling-challenge"
+    "ecoImpact": {
+      "category": "recycling",
+      "co2SavedKg": 0.3,
+      "co2AbsorbedKgPerYear": 0,
+      "waterSavedLiters": 0,
+      "plasticSavedGrams": 200,
+      "energySavedKwh": 0,
+      "treesEquivalent": 0
+    }
   },
   {
     "_id": "60a2b5c3f5d4e1a2b3c4d607",
@@ -283,7 +483,15 @@
     "isActive": true,
     "challenge_type": "school_task",
     "frequency": "one-time",
-    "slug": "thdy-alhfaz-aly-altnw-albyylwjy"
+    "ecoImpact": {
+      "category": "awareness",
+      "co2SavedKg": 0,
+      "co2AbsorbedKgPerYear": 0,
+      "waterSavedLiters": 0,
+      "plasticSavedGrams": 0,
+      "energySavedKwh": 0,
+      "treesEquivalent": 0
+    }
   },
   {
     "_id": "60a2b5c3f5d4e1a2b3c4d608",
@@ -294,7 +502,15 @@
     "isActive": true,
     "challenge_type": "solo",
     "frequency": "one-time",
-    "slug": "smart-home-energy-audit"
+    "ecoImpact": {
+      "category": "energy",
+      "co2SavedKg": 10,
+      "co2AbsorbedKgPerYear": 0,
+      "waterSavedLiters": 0,
+      "plasticSavedGrams": 0,
+      "energySavedKwh": 50,
+      "treesEquivalent": 0
+    }
   },
   {
     "_id": "60a2b5c3f5d4e1a2b3c4d60a",
@@ -305,6 +521,14 @@
     "isActive": true,
     "challenge_type": "solo",
     "frequency": "weekly",
-    "slug": "eco-friendly-cleaning-products"
+    "ecoImpact": {
+      "category": "recycling",
+      "co2SavedKg": 0.2,
+      "co2AbsorbedKgPerYear": 0,
+      "waterSavedLiters": 10,
+      "plasticSavedGrams": 30,
+      "energySavedKwh": 0,
+      "treesEquivalent": 0
+    }
   }
 ]
