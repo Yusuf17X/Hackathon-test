@@ -4,6 +4,7 @@ const UserChallenge = require("../models/userChallengeModel");
 const catchAsync = require("../utils/catchAsync");
 const APIFeatures = require("../utils/apiFeatures");
 const challengeScheduler = require("../utils/challengeScheduler");
+const AppError = require("../utils/appError");
 
 exports.getAllChallenges = catchAsync(async (req, res, next) => {
   // Build filter for isActive: true
@@ -51,6 +52,16 @@ exports.getAvailableChallenges = catchAsync(async (req, res, next) => {
 
   // Add challenge_type filter if provided (solo or school_task)
   if (req.query.challenge_type) {
+    // Validate challenge_type parameter
+    const validTypes = ["solo", "school_task"];
+    if (!validTypes.includes(req.query.challenge_type)) {
+      return next(
+        new AppError(
+          "Invalid challenge_type. Must be 'solo' or 'school_task'",
+          400
+        )
+      );
+    }
     filter.challenge_type = req.query.challenge_type;
   }
 
