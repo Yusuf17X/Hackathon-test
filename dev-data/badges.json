@@ -35,25 +35,11 @@
     "requirement_value": 500
   },
   {
-    "_id": "60a3b5c3f5d4e1a2b3c4d5e6",
-    "name": "Master Recycler",
-    "icon": "♻️",
-    "requirement_type": "specific_challenge",
-    "requirement_value": 1
-  },
-  {
     "_id": "60a3b5c3f5d4e1a2b3c4d5e7",
     "name": "بطل الطاقة",
     "icon": "⚡",
     "requirement_type": "challenges_count",
     "requirement_value": 20
-  },
-  {
-    "_id": "60a3b5c3f5d4e1a2b3c4d5e8",
-    "name": "Ocean Protector",
-    "icon": "🌊",
-    "requirement_type": "specific_challenge",
-    "requirement_value": 2
   },
   {
     "_id": "60a3b5c3f5d4e1a2b3c4d5e9",
