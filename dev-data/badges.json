@@ -8,7 +8,7 @@
   },
   {
     "_id": "60a3b5c3f5d4e1a2b3c4d5e2",
-    "name": "Eco Warrior",
+    "name": "محارب البيئة",
     "icon": "⚔️",
     "requirement_type": "challenges_count",
     "requirement_value": 10
@@ -22,7 +22,7 @@
   },
   {
     "_id": "60a3b5c3f5d4e1a2b3c4d5e4",
-    "name": "Champion of Sustainability",
+    "name": "بطل الاستدامة",
     "icon": "🏆",
     "requirement_type": "points_threshold",
     "requirement_value": 250
@@ -50,7 +50,7 @@
   },
   {
     "_id": "60a3b5c3f5d4e1a2b3c4d5ea",
-    "name": "Climate Hero",
+    "name": "بطل المناخ",
     "icon": "🦸",
     "requirement_type": "challenges_count",
     "requirement_value": 30
