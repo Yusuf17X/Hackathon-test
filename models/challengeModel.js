@@ -30,6 +30,15 @@ const challengeSchema = new mongoose.Schema(
       type: Boolean,
       default: true,
     },
+    challenge_type: {
+      type: String,
+      enum: {
+        values: ["solo", "school_task"],
+        message: "{VALUE} is not a valid challenge type!",
+      },
+      default: "solo",
+      required: [true, "A challenge must have a type!"],
+    },
   },
   {
     toJSON: { virtuals: true },
