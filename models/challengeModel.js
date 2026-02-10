@@ -3,13 +3,13 @@ const slugify = require("slugify");
 
 const challengeSchema = new mongoose.Schema(
   {
-    title: {
+    name: {
       type: String,
-      required: [true, "A title must have a name!"],
+      required: [true, "A challenge must have a name!"],
       unique: true,
       trim: true,
-      minlength: [2, "Title too short!"],
-      maxlength: [100, "Title too long!"],
+      minlength: [2, "Name too short!"],
+      maxlength: [100, "Name too long!"],
     },
     slug: String,
     description: {
@@ -22,6 +22,14 @@ const challengeSchema = new mongoose.Schema(
       default: 10,
       min: [5, "Challenge points is too low!"],
     },
+    emoji: {
+      type: String,
+      default: "🌱",
+    },
+    isActive: {
+      type: Boolean,
+      default: true,
+    },
   },
   {
     toJSON: { virtuals: true },
@@ -30,8 +38,9 @@ const challengeSchema = new mongoose.Schema(
   },
 );
 
-challengeSchema.pre("save", function () {
+challengeSchema.pre("save", function (next) {
   this.slug = slugify(this.name, { lower: true });
+  next();
 });
 
 const Challenge = mongoose.model("Challenge", challengeSchema);

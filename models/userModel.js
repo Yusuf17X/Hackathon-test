@@ -70,6 +70,14 @@ const userSchema = new mongoose.Schema(
       min: [0, "Points can not be below 0!"],
       required: [true, "A user must have points"],
     },
+    currentStreak: {
+      type: Number,
+      default: 0,
+    },
+    lastActivityDate: {
+      type: Date,
+      default: null,
+    },
   },
   {
     timestamps: true,

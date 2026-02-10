@@ -5,7 +5,6 @@ const User = require("./../models/userModel");
 const AppError = require("./../utils/appError");
 const factory = require("./handlerFactory");
 
-const School = require("./../models/schoolModel");
 const userChallenge = require("./../models/userChallengeModel");
 const userBadge = require("./../models/userBadgeModel");
 
@@ -61,27 +60,153 @@ exports.getMe = (req, res, next) => {
   next();
 };
 
-exports.getProfileDetails = catchAsync(async (req, res, next) => {
+exports.getProfile = catchAsync(async (req, res, next) => {
+  const Badge = require("./../models/badgeModel");
+  const {
+    t,
+    formatMemberSince,
+    MS_PER_DAY,
+  } = require("./../utils/translations");
+
+  // Get user with populated school
   const user = await User.findById(req.user._id).populate(
     "school_id",
     "name city",
   );
 
+  if (!user) {
+    return next(new AppError("User not found", 404));
+  }
+
+  // Calculate level based on points
+  const { points } = user;
+  let level = {
+    current: 1,
+    name: "beginner",
+    nameAr: t("beginner"),
+    pointsToNextLevel: 50,
+    hasNextLevel: true,
+  };
+
+  if (points >= 800) {
+    level = {
+      current: 6,
+      name: "eco_expert",
+      nameAr: t("eco_expert"),
+      pointsToNextLevel: 0,
+      hasNextLevel: false,
+    };
+  } else if (points >= 500) {
+    level = {
+      current: 5,
+      name: "eco_hero",
+      nameAr: t("eco_hero"),
+      pointsToNextLevel: 800 - points,
+      hasNextLevel: true,
+    };
+  } else if (points >= 300) {
+    level = {
+      current: 4,
+      name: "enthusiast",
+      nameAr: t("enthusiast"),
+      pointsToNextLevel: 500 - points,
+      hasNextLevel: true,
+    };
+  } else if (points >= 150) {
+    level = {
+      current: 3,
+      name: "active",
+      nameAr: t("active"),
+      pointsToNextLevel: 300 - points,
+      hasNextLevel: true,
+    };
+  } else if (points >= 50) {
+    level = {
+      current: 2,
+      name: "learner",
+      nameAr: t("learner"),
+      pointsToNextLevel: 150 - points,
+      hasNextLevel: true,
+    };
+  }
+
+  // Get completed challenges count
+  const completedChallenges = await userChallenge.countDocuments({
+    user_id: req.user._id,
+    status: "approved",
+  });
+
+  // Calculate streak
+  let streak = 0;
+  if (user.lastActivityDate) {
+    const now = new Date();
+    const lastActivity = new Date(user.lastActivityDate);
+    const diffDays = Math.floor((now - lastActivity) / MS_PER_DAY);
+
+    if (diffDays === 0 || diffDays === 1) {
+      streak = user.currentStreak;
+    }
+  }
+
+  // Format member since date
+  const memberSinceFormatted = formatMemberSince(user.createdAt);
+
+  // Get all badges and check which ones the user has earned
+  const allBadges = await Badge.find();
+  const userBadgesData = await userBadge.find({ user_id: req.user._id });
+  const earnedBadgeIds = userBadgesData.map((ub) => ub.badge_id.toString());
+
+  const badges = allBadges.map((badge) => ({
+    name: badge.name,
+    icon: badge.icon,
+    isEarned: earnedBadgeIds.includes(badge._id.toString()),
+  }));
+
+  // Get last 5 activities (merge UserChallenges and UserBadges)
   const userChallenges = await userChallenge
     .find({ user_id: req.user._id })
-    .populate("challenge_id", "name points createdAt");
+    .populate("challenge_id", "name")
+    .sort({ createdAt: -1 })
+    .limit(5);
 
-  const userBadges = await userBadge
+  const userBadgesActivities = await userBadge
     .find({ user_id: req.user._id })
-    .populate("badge_id", "name icon createdAt");
+    .populate("badge_id", "name")
+    .sort({ createdAt: -1 })
+    .limit(5);
+
+  const activities = [
+    ...userChallenges.map((uc) => ({
+      type: "challenge",
+      name: uc.challenge_id?.name || "Unknown Challenge",
+      date: uc.createdAt,
+    })),
+    ...userBadgesActivities.map((ub) => ({
+      type: "badge",
+      name: ub.badge_id?.name || "Unknown Badge",
+      date: ub.createdAt,
+    })),
+  ]
+    .sort((a, b) => b.date - a.date)
+    .slice(0, 5);
 
   res.status(200).json({
     status: "success",
     data: {
       name: user.name,
-      
+      school: user.school_id
+        ? { name: user.school_id.name, city: user.school_id.city }
+        : null,
+      points: user.points,
+      level,
+      completedChallengesCount: completedChallenges,
+      streak,
+      memberSince: memberSinceFormatted,
+      badges,
+      lastActivities: activities,
+    },
+  });
 });
-
 exports.updateMe = catchAsync(async (req, res, next) => {
   if (req.body.password || req.body.passwordConfirm)
     return next(
